@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond second-hand · Jihyun Kim</title>
+<meta name="description" content="Helping people see Karrot as more than a marketplace.">
+<meta property="og:title" content="Beyond second-hand · Jihyun Kim">
+<meta property="og:description" content="Helping people see Karrot as more than a marketplace.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23141414%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Helvetica,Arial,sans-serif%22 font-size=%2217%22 font-weight=%22600%22 fill=%22white%22 text-anchor=%22middle%22%3EJ%3C/text%3E%3C/svg%3E">
+<style>@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-sans-400.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/instrument-sans-500.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/instrument-sans-600.woff2) format('woff2')}</style>
+<style>
+body{margin:0;background:#ffffff}
+a{color:#141414}
+a:hover{color:#5c5c5c}
+.wrap{max-width:1120px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;box-sizing:content-box}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.goalbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
+.stage2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.stage3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.tabs5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.mx{display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 24px}
+.mx.num{grid-template-columns:44px minmax(0,1fr)}
+.results4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.ctr{display:grid;grid-template-columns:minmax(0,1fr) 116px;gap:14px;align-items:stretch}
+.ia{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));column-gap:0;min-width:820px}
+.ia .pill{background:#ffffff;border-radius:999px;padding:10px 12px;font-size:14px;line-height:1.3;font-weight:500;text-align:center}
+.learn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.flow{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr) 40px minmax(0,1fr);align-items:start}
+.flow .arr{padding-top:200px;display:flex;justify-content:center}
+.mq{padding:clamp(8px,2vw,24px) 0;display:flex;flex-direction:column;gap:clamp(10px,1.4vw,20px);overflow:hidden}
+.mq-row{overflow:hidden}
+.mq-track{display:flex;width:max-content;animation-name:mq;animation-timing-function:linear;animation-iteration-count:infinite;will-change:transform}
+.mq-track img{height:clamp(60px,7.8vw,112px);width:auto;display:block;flex:none}
+.mq-rev{animation-direction:reverse}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.mq-track{animation-play-state:paused}}
+@media (max-width:860px){
+.wrap{padding-left:20px;padding-right:20px}
+.meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.results{grid-template-columns:minmax(0,1fr)}
+.goalbox{grid-template-columns:minmax(0,1fr);gap:28px}
+.title-h{font-size:40px !important}
+.stage2{grid-template-columns:minmax(0,1fr)}
+.stage3{grid-template-columns:minmax(0,1fr)}
+.two{grid-template-columns:minmax(0,1fr)}
+.three{grid-template-columns:minmax(0,1fr)}
+.tabs5{grid-template-columns:minmax(0,1fr)}
+.mx{grid-template-columns:minmax(0,1fr);gap:4px}
+.mx.num{grid-template-columns:32px minmax(0,1fr);gap:4px 12px}
+.results4{grid-template-columns:minmax(0,1fr)}
+.ctr{grid-template-columns:minmax(0,1fr) 96px;gap:10px}
+.learn{grid-template-columns:minmax(0,1fr);gap:28px}
+.flow{grid-template-columns:minmax(0,1fr)}
+.flow .arr{padding-top:0;transform:rotate(90deg)}
+.stage-pad{padding:32px 6% !important}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
+
+  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
+    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+    <nav aria-label="Main" style="display: flex; gap: 28px">
+      <a href="index.html#work" style="text-decoration: none">Work</a>
+      <a href="index.html#about" style="text-decoration: none">About</a>
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
+    </nav>
+  </header>
+
+  <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
+    <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
+    <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Beyond second-hand</h1>
+    <p style="margin: 0; max-width: 680px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Helping people see Karrot as more than a marketplace.</p>
+    <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Role</span><span>Product designer on a company task force, then lead designer for My Karrot</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>Designers, a researcher, PMs, engineers, a data analyst, the CPO and CEO</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>Nov 2022 to Mar 2023, then 3 months in 2024</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Market</span><span>South Korea</span></div>
+    </div>
+  </section>
+
+  <div class="mq" role="img" aria-label="Labels for the many kinds of local posts on Karrot, from a real local’s recommendation and local sharing to weekday shifts, lost dogs and road closures">
+    <div class="mq-row"><div class="mq-track mq-rev" style="animation-duration: 137s; animation-delay: -97s"><img src="assets/img/bsh-mqt1.webp" alt=""><img src="assets/img/bsh-mqt1.webp" alt=""></div></div>
+    <div class="mq-row"><div class="mq-track" style="animation-duration: 125s; animation-delay: -35s"><img src="assets/img/bsh-mqt2.webp" alt=""><img src="assets/img/bsh-mqt2.webp" alt=""></div></div>
+    <div class="mq-row"><div class="mq-track mq-rev" style="animation-duration: 126s; animation-delay: -80s"><img src="assets/img/bsh-mqt3.webp" alt=""><img src="assets/img/bsh-mqt3.webp" alt=""></div></div>
+  </div>
+
+  <section class="wrap" style="padding-top: 96px; display: flex; flex-direction: column; gap: 32px">
+    <div class="goalbox" style="padding-top: 28px; border-top: 1px solid #141414">
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 15px; color: #5c5c5c">One goal behind both projects</span>
+        <p style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -0.02em">Make people see Karrot as a local super app, not just a second-hand marketplace.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
+        <span style="font-size: 17px; font-weight: 500">My Karrot tab page views</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">+50.4%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">7.38M → 11.1M, four months after the redesign</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
+        <span style="font-size: 17px; font-weight: 500">Service entries through My Karrot</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">429k</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">from 281k one month in, +52.6% by month six</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d">As of 2022, most people used Karrot for one thing: second-hand trading. Getting to anything else was hard, and people who did find another service often couldn’t find it again. This page covers two projects that tackled that from both ends: a task force that rethought the whole app, and the redesign of My Karrot and All Services that I led afterward.</p>
+    </div>
+    <div class="two">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Part 1 · Nov 2022 to Mar 2023</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">A task force to rethink the whole app</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I analysed the app’s structure and flows, and defined problems and proposals for Home, Neighborhood Life and My Karrot.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">Proposals for Home, Search and All Services were all built.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Part 2 · 3 months in 2024</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">My Karrot and All Services</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I set the direction, planned and ran the experiments, and took part in every decision from start to finish.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">My Karrot page views +50.4%. Karrot Pay sign-ups +253%.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">Part 1 · Task force, Nov 2022 to Mar 2023</span>
+      <h2 id="tf" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Step back and look at the whole app</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> look at Karrot as a whole forest, not tree by tree, and propose UX and UI that make it feel like a local super app.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <p style="margin: 0; color: #3d3d3d">Four product designers, a user researcher, a PM, the CPO and the CEO. I analysed the app’s overall structure and flows, and defined problems and proposals for Home, Neighborhood Life and My Karrot.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">The problem</h3>
+      <p style="margin: 0; color: #3d3d3d">As of 2022, most people saw Karrot, and used it, as a place to trade second-hand goods. The main reason: finding and getting to anything else wasn’t easy. Even when people found another service, they often couldn’t find it again, and gradually dropped off.</p>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-home-2022-top.webp" alt="Home in 2022: a feed of second-hand listings" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Home.</span> Almost all second-hand listings.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-as-2022.webp" alt="All Services in 2022: icons for a few services, then second-hand categories" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">All Services.</span> Built around second-hand categories.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-mk-control.webp" alt="My Karrot in 2022: profile, Karrot Pay, recent visits, then a long list of menus" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">My Karrot.</span> Mostly a record of buying and selling.</p>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Karrot in 2022.</p>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <span style="font-size: 15px; color: #5c5c5c">Approach</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">1. Research the app’s structure the way people see it</h3>
+      <p style="margin: 0; color: #3d3d3d">Through user research and an analysis of the app’s information architecture, we regrouped every service by how people actually perceive it, not by how Karrot had organised it.</p>
+    </div>
+    <div class="scroll" style="background: #f2f2f0; border-radius: 20px; padding: 32px 4% 28px; box-sizing: border-box">
+      <div class="ia" role="img" aria-label="Services grouped by how people see them: peer-to-peer transactions; uncategorised; neighbourhood commerce; neighbour interaction and communication; with local information overlapping commerce and interaction">
+        <div style="grid-column: 1 / span 1; grid-row: 1; padding: 0 10px 12px; font-size: 14px; line-height: 1.3; font-weight: 600; color: #b4541a">Peer-to-peer transactions</div>
+        <div style="grid-column: 2 / span 1; grid-row: 1; padding: 0 10px 12px; font-size: 14px; line-height: 1.3; font-weight: 600; color: #8a8a86">Uncategorised</div>
+        <div style="grid-column: 3 / span 2; grid-row: 1; padding: 0 10px 12px; font-size: 14px; line-height: 1.3; font-weight: 600; color: #1f7a4d">Neighbourhood commerce</div>
+        <div style="grid-column: 5 / span 2; grid-row: 1; padding: 0 10px 12px; font-size: 14px; line-height: 1.3; font-weight: 600; color: #3b47c4">Neighbour interaction and communication</div>
+        <div style="grid-column: 1; grid-row: 2; background: #f6e2d6; border-radius: 16px; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 8px"><div class="pill">Second-hand goods</div><div class="pill">Used cars sold directly</div><div class="pill">Local food</div></div>
+        <div style="grid-column: 2; grid-row: 2; background: #e9e9e6; border-radius: 16px; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 8px"><div class="pill">Real estate</div></div>
+        <div style="grid-column: 3; grid-row: 2; background: #d6efe2; border-radius: 16px 0 0 16px; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 0px"><div class="pill">Booking</div><div class="pill">Moving and repairs</div><div class="pill">Store news</div></div>
+        <div style="grid-column: 4; grid-row: 2; background: #c9ece6; border-radius: 0 16px 16px 0; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 8px"><div class="pill">Apartment communities</div><div class="pill">Karrot Map</div><div class="pill">Shops neighbours recommend</div></div>
+        <div style="grid-column: 5; grid-row: 2; background: #d3dcf3; border-radius: 16px 0 0 16px; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 0px"><div class="pill">Coupon books</div><div class="pill">Local jobs</div></div>
+        <div style="grid-column: 6; grid-row: 2; background: #dcdcf6; border-radius: 0 16px 16px 0; padding: 16px 10px; display: flex; flex-direction: column; gap: 10px; margin-right: 8px"><div class="pill">Groups</div><div class="pill">Questions about local places</div><div class="pill">Sharing deals and discounts</div></div>
+        <div style="grid-column: 4 / span 2; grid-row: 3; margin: 12px 8px 0 0; padding-top: 8px; border-top: 3px solid #4a8fd6; font-size: 14px; line-height: 1.3; font-weight: 600; color: #2b6cb0; text-align: center">Local information</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid #e6e6e3; max-width: 760px">
+      <div class="mx num" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">1</span><span style="color: #3d3d3d">People see second-hand goods, used cars sold directly, and farm and seafood produce as one kind of thing: trading.</span></div>
+      <div class="mx num" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">2</span><span style="color: #3d3d3d">Few people knew the Nearby tab. They grouped local shops and Neighborhood Life posts, except groups, together as “local information”.</span></div>
+      <div class="mx num" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">3</span><span style="color: #3d3d3d">The line between local shops (neighbourhood commerce) and local information (everyday tips) wasn’t clear.</span></div>
+      <div class="mx num" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">4</span><span style="color: #3d3d3d">Karrot Jobs felt unrelated to everything else, and employers and job seekers saw it differently.</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">2. Redefine each tab’s role around how people see it</h3>
+    </div>
+    <div class="tabs5">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #f2f2f0; border: 1px solid #f2f2f0"><span style="font-size: 14px; color: #5c5c5c">Tab 1</span><span style="font-size: 17px; line-height: 1.3; font-weight: 600">Home</span><span><span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0; vertical-align: 2px">My part</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #ffffff; border: 1px solid #e6e6e3"><span style="font-size: 14px; color: #5c5c5c">Tab 2</span><span style="font-size: 17px; line-height: 1.3; font-weight: 600">Local marketplace</span><span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #f2f2f0; border: 1px solid #f2f2f0"><span style="font-size: 14px; color: #5c5c5c">Tab 3</span><span style="font-size: 17px; line-height: 1.3; font-weight: 600">Neighborhood Life</span><span><span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0; vertical-align: 2px">My part</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #ffffff; border: 1px solid #e6e6e3"><span style="font-size: 14px; color: #5c5c5c">Tab 4</span><span style="font-size: 17px; line-height: 1.3; font-weight: 600">Chat</span><span><span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; border: 1px solid #c9c9c5; color: #3d3d3d; font-weight: 500; white-space: nowrap">Out of scope</span></span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: #f2f2f0; border: 1px solid #f2f2f0"><span style="font-size: 14px; color: #5c5c5c">Tab 5</span><span style="font-size: 17px; line-height: 1.3; font-weight: 600">All, or My Karrot</span><span><span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0; vertical-align: 2px">My part</span></span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">3. Test with users, and align with the company</h3>
+    </div>
+    <div class="two">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #ffffff; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">What testing showed</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">People didn’t notice big changes to the tab structure, and kept using the app the way they knew. To reach a service, they used entry points or search that took them there straight from the content in front of them.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #ffffff; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">What Karrot needed</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">Karrot’s identity isn’t a utility app. It’s about discovering what’s happening in the neighbourhood. So the home screen itself had to work as a feed.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 56px">
+      <span style="font-size: 15px; color: #5c5c5c">Final proposal</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Let people find other services inside the content they already came for</h3>
+      <p style="margin: 0; color: #3d3d3d">Within second-hand trading, let people discover other services naturally and seamlessly. Let them explore through content, not through a hierarchy of services.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 1. Home.</span> A personalised feed of all kinds of local content, built on second-hand listings, rather than a separate tab for second-hand. People could discover other content they might like between second-hand posts.</p>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 10% 48px; box-sizing: border-box; gap: 40px 8%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-home-2022.webp" alt="The home feed until 2022: second-hand listings, with a used car ad and a part-time job ad" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 750 / 2506; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Until 2022.</span> 88% second-hand content, with little personalisation.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-home-2024.webp" alt="The home feed in 2024: service shortcuts, a Karrot team post, then listings mixed with a used car, a video ad, a meet-up, property and a part-time job" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 750 / 2780; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">In 2024.</span> Service shortcuts at the top, a personalised feed, and 70% second-hand content, mixed with used cars, video ads, meet-ups, property and part-time jobs.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 16px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 2. Fixed entry points.</span> Give every service a fixed entry point people can always reach, designed so it makes sense in a content-driven app.</p>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 3. Search as a way in.</span> Most people who couldn’t find a service’s entry point were reaching service homes, like Jobs and Real Estate, through search. So we proposed helping people discover and understand services through content before, during and after a search.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Outcome</h3>
+      <p style="margin: 0; color: #3d3d3d">The proposals for Home, Search and All Services, the key surfaces for being seen as a local super app, were all built into the product.</p>
+      <p style="margin: 0; color: #3d3d3d">The task force didn’t reach solutions for My Karrot, the notification box or profiles, but I raised them as problems and they stayed on the list. After the task force ended, I took on a dual role and led the reorganisation myself. That’s Part 2.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">Part 2 · My Karrot and All Services, 3 months in 2024</span>
+      <h2 id="mk" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Make My Karrot the way into every service</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> help people learn fixed entry points to every service, and visit My Karrot to reach them. Reorganise the menus across all services.</p>
+    </div>
+    <div class="two" style="gap: 20px 40px; padding-top: 4px">
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Key metrics</span><span>My Karrot tab page views</span><span>Service clicks through My Karrot</span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Team and my part</span><span>A PM, me, four native engineers, a backend engineer and a data analyst. I set the direction and proposed the strategy, planned and ran the experiments, and took part in decisions from start to finish.</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Background</h3>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid #e6e6e3; max-width: 760px">
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">3rd</span><span style="color: #3d3d3d">My Karrot had the third-highest page views of all Karrot tabs.</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">80%+</span><span style="color: #3d3d3d">of its traffic was people checking their second-hand sales history and wishlist.</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">~2%</span><span style="color: #3d3d3d">click rate on the service entry points inside My Karrot. They weren’t doing their job.</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">83%</span><span style="color: #3d3d3d">of all clicks on the All Services page came from second-hand trading alone, because the page was built around second-hand categories.</span></div>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 7% 48px; box-sizing: border-box; gap: 40px 6%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0; width: 100%; align-items: center">
+        <div class="ctr" style="width: 100%; max-width: 370px">
+          <img src="assets/img/bsh-mk-control.webp" alt="My Karrot before, with click rates beside each section" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <div style="position: relative; min-height: 100%"><div style="position: absolute; left: 0; right: 0; top: 12.3%; height: 21%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">4.9%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Profile and Pay</span></div><div style="position: absolute; left: 0; right: 0; top: 36.3%; height: 10.5%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">2.1%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Recent visits</span></div><div style="position: absolute; left: 0; right: 0; top: 55.4%; height: 17.3%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">82.8%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Buying and selling</span></div></div>
+        </div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 370px"><span style="color: #141414; font-weight: 500">My Karrot.</span> CTR by section: most taps went to buying and selling.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-as-2022.webp" alt="All Services before: a row of service icons, then second-hand categories" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">All Services.</span> Second-hand categories took most of the page.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">Becoming a local super app meant reworking the whole journey, not just the home feed. We redesigned the structure of My Karrot as the core touchpoint.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Two experiments on the name</h3>
+    </div>
+    <div class="two">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Experiment 1</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Rename My Karrot to “All”</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">To widen its role beyond trading history, we made the tab the main way into every service, and called it All. Page views dropped 6%, and feedback said many people couldn’t find My Karrot anymore. Interviews showed why: people expected a tab called All to be a sitemap, not a place for their own activity. Those who got used to the name, though, found it natural for the old My Karrot menus to live there. After two weeks, we concluded people couldn’t adapt to a new name that quickly.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">−6% tab page views</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Experiment 2</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Keep the name, protect the traffic</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">The third tab affects how the whole app gets used, so we made tab page views a guardrail and ran a second experiment, keeping the original name, My Karrot. This time page views held, and we decided to roll it out.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">No drop in page views. Rolled out.</p>
+      </div>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-mk-control.webp" alt="Control: the original My Karrot" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Control.</span> The original tab.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-mk-exp1.webp" alt="Experiment 1: the tab renamed All, with Favourites, Listings and Events as shortcuts above Services" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Experiment 1.</span> Renamed All, with services in cards.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-mk-exp2.webp" alt="Experiment 2: the same cards under the original name, My Karrot" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Experiment 2. <span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0; vertical-align: 2px">Shipped</span></span> The same cards, under the name My Karrot.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 56px">
+      <span style="font-size: 15px; color: #5c5c5c">Final decision</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Group by what people do, and make services stand out</h3>
+    </div>
+    <div class="three">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">01</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Cards for clear groups</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">Features with very different purposes share one surface, so clear grouping matters. Cards make each section’s boundary easy to see at a glance.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">02</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Services with more weight</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">Service entry points get more visual weight, with colour icons and a larger share of the screen.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">03</span>
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Menus regrouped for people</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">Instead of mirroring the internal org structure, every menu was regrouped from the user’s point of view.</p>
+      </div>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 7% 48px; box-sizing: border-box; gap: 48px 6%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0; width: 100%; align-items: center">
+        <span style="font-size: 15px; font-weight: 600; width: 100%; max-width: 370px">Before</span>
+        <div class="ctr" style="width: 100%; max-width: 370px">
+          <img src="assets/img/bsh-mk-before-long.webp" alt="My Karrot before: profile, Pay, recent visits, then a long list of menus grouped by team" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 3708; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <div style="position: relative; min-height: 100%"><div style="position: absolute; left: 0; right: 0; top: 5.4%; height: 9.2%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">4.9%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Profile and Pay</span></div><div style="position: absolute; left: 0; right: 0; top: 15.9%; height: 4.6%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">2.1%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Recent visits</span></div><div style="position: absolute; left: 0; right: 0; top: 24.4%; height: 7.0%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">82.8%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Buying and selling</span></div></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0; width: 100%; align-items: center">
+        <span style="font-size: 15px; font-weight: 600; width: 100%; max-width: 370px">After</span>
+        <div class="ctr" style="width: 100%; max-width: 370px">
+          <img src="assets/img/bsh-mk-after-long.webp" alt="My Karrot after: cards for profile and Pay, Services, My deals, My activities, Karrot news and My Business" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 3708; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <div style="position: relative; min-height: 100%"><div style="position: absolute; left: 0; right: 0; top: 5.9%; height: 9.7%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">6.5%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Profile and Pay</span></div><div style="position: absolute; left: 0; right: 0; top: 16.3%; height: 14.2%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">6.6%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">Services</span></div><div style="position: absolute; left: 0; right: 0; top: 31.3%; height: 17.8%; border-left: 2px solid #141414; padding-left: 10px; display: flex; flex-direction: column; justify-content: center; gap: 2px; box-sizing: border-box"><span style="font-size: 22px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">75%</span><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c">My deals</span></div></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">CTR by section, before and after the redesign.</p>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Service discovery across the app</h3>
+      <p style="margin: 0; color: #3d3d3d">Every service now has fixed ways in: the menu on Home opens All Services, and My Karrot shows the main services with a See All link to the rest.</p>
+    </div>
+    <div class="flow stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; row-gap: 20px">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-home-2024-top.webp" alt="Home in 2024, with a menu icon at the top and shortcuts to part-time jobs, used cars and property" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Home.</span> The menu icon opens All Services.</p>
+      </div>
+<div class="arr" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><line x1="1" y1="7" x2="25" y2="7" stroke="#8a8a86" stroke-width="1.5"></line><path d="M19 2 L26 7 L19 12" fill="none" stroke="#8a8a86" stroke-width="1.5"></path></svg></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-as-after.webp" alt="All Services after the redesign, grouped into local deals, local stories, local food, local experts, my business and finance" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">All Services.</span> Every service, grouped by what people want to do.</p>
+      </div>
+<div class="arr" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><line x1="1" y1="7" x2="25" y2="7" stroke="#8a8a86" stroke-width="1.5"></line><path d="M19 2 L26 7 L19 12" fill="none" stroke="#8a8a86" stroke-width="1.5"></path></svg></div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-mk-exp2.webp" alt="My Karrot after the redesign, with a Services card and a See All link" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">My Karrot.</span> The main services, with See All for the rest.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">All Services</h3>
+      <p style="margin: 0; color: #3d3d3d">The second-hand categories had been surfaced in a way that didn’t match the service hierarchy. We moved Marketplace into the first level, next to the other services, to set a clearer hierarchy. Its categories now sit one tap deeper.</p>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-as-before-long.webp" alt="All Services before: service icons, a large Marketplace category grid, then local story, food, lifestyle, local deals and finance" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 2600; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Before.</span> Marketplace categories filled most of the page.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-as-after.webp" alt="All Services after: Marketplace listed with Part-time Job, Property and Used Car under local deals" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 2164; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">After.</span> Marketplace sits with the other services.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-marketplace.webp" alt="The Marketplace page, one tap deeper, with all second-hand categories" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1800; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">One tap deeper.</span> The full set of second-hand categories.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 56px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Results</h3>
+    </div>
+    <div class="results4">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">429k</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 281k · +52.6%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">service entries through My Karrot, six months after the redesign, against one month after.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+50.4%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">7.38M → 11.1M</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">My Karrot page views four months after the redesign. No change right after it.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+49.5%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">1.23M → 1.84M</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">My Karrot unique visitors over the same four months.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+253%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">6.7k → 23.9k</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">Karrot Pay sign-ups through My Karrot.</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">After the redesign, people learned to reach a wider range of services through My Karrot. Page views and visitors across service entry points kept growing, and My Karrot became an effective surface for marketing and growth work.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px; padding-bottom: 152px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
+    </div>
+    <div class="learn">
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">People find services inside content.</span><p style="margin: 0; color: #3d3d3d">Testing showed people didn’t notice a new tab structure. They reached services through entry points and search in the content in front of them.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">A name people rely on is worth protecting.</span><p style="margin: 0; color: #3d3d3d">Renaming My Karrot cost 6% of its page views in two weeks. The guardrail in the second test let us keep the gains without that cost.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Organise around people, not the org chart.</span><p style="margin: 0; color: #3d3d3d">Regrouping menus by what people do, rather than which team owns them, is what made the services easy to find.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Raise the problem, even without the answer yet.</span><p style="margin: 0; color: #3d3d3d">My Karrot was left open when the task force ended. Keeping it on the list is what made Part 2 possible.</p></div>
+    </div>
+  </section>
+
+  <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
+    <a href="karrot-map.html" style="text-decoration: none">Next: Karrot Map →</a>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap">
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
+      <span style="color: #5c5c5c">[LinkedIn link]</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

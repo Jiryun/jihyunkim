@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karrot Map · Jihyun Kim</title>
+<meta name="description" content="Giving a new map a reason to visit.">
+<meta property="og:title" content="Karrot Map · Jihyun Kim">
+<meta property="og:description" content="Giving a new map a reason to visit.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23141414%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Helvetica,Arial,sans-serif%22 font-size=%2217%22 font-weight=%22600%22 fill=%22white%22 text-anchor=%22middle%22%3EJ%3C/text%3E%3C/svg%3E">
+<style>@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-sans-400.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/instrument-sans-500.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/instrument-sans-600.woff2) format('woff2')}</style>
+<style>
+body{margin:0;background:#ffffff}
+a{color:#141414}
+a:hover{color:#5c5c5c}
+.wrap{max-width:1120px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;box-sizing:content-box}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.goalbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
+.stage2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.stage3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.stage5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 6%}
+.homeg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.jobs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.mx{display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 24px}
+.fn{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:center}
+.learn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.tbl th{font-weight:400;color:#5c5c5c;text-align:left;padding:0 16px 10px 0;font-size:14px;vertical-align:bottom}
+.tbl td{padding:14px 16px 14px 0;border-top:1px solid #e6e6e3;vertical-align:top;color:#3d3d3d}
+.tbl tr:last-child td{border-bottom:1px solid #e6e6e3}
+.tbl td.rh{color:#141414;font-weight:500}
+.tbl .n{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tbl th.n{text-align:right}
+.tbl .k{background:#f2f2f0;padding-left:16px;color:#141414}
+.tbl th.k{border-radius:12px 12px 0 0;padding-top:12px;font-weight:600;color:#141414}
+.tbl tr.win td{color:#141414;font-weight:500}
+@media (max-width:860px){
+.wrap{padding-left:20px;padding-right:20px}
+.meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.results{grid-template-columns:minmax(0,1fr)}
+.goalbox{grid-template-columns:minmax(0,1fr);gap:28px}
+.title-h{font-size:40px !important}
+.stage2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stage3{grid-template-columns:minmax(0,1fr)}
+.stage5{grid-template-columns:repeat(2,minmax(0,1fr))}
+.two{grid-template-columns:minmax(0,1fr)}
+.homeg{grid-template-columns:minmax(0,1fr)}
+.jobs{grid-template-columns:minmax(0,1fr)}
+.mx{grid-template-columns:minmax(0,1fr);gap:4px}
+.tbl.fit{min-width:0}
+.bignum{font-size:36px !important}
+.fn{grid-template-columns:minmax(0,1fr);gap:6px}
+.fn .fa-h{display:none !important}
+.fn .fa-v{display:block !important}
+.learn{grid-template-columns:minmax(0,1fr);gap:28px}
+.stage-pad{padding:32px 6% !important}
+.tbl{min-width:640px}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
+
+  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
+    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+    <nav aria-label="Main" style="display: flex; gap: 28px">
+      <a href="index.html#work" style="text-decoration: none">Work</a>
+      <a href="index.html#about" style="text-decoration: none">About</a>
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
+    </nav>
+  </header>
+
+  <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
+    <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
+    <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Karrot Map</h1>
+    <p style="margin: 0; max-width: 680px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Giving a new neighbourhood map a reason to visit.</p>
+    <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Role</span><span>Project lead (DRI) and product designer</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>PMs, frontend and backend engineers, cartographers</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>7 months in 2025</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Market</span><span>South Korea</span></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure style="margin: 0">
+      <img src="assets/img/map-content.webp" alt="Karrot Map around home, with store news, coupons, local posts and food streets pinned on the map" style="width: 100%; height: auto; display: block; border-radius: 20px; border: 1px solid #e6e6e3; box-sizing: border-box; background: #ffffff">
+    </figure>
+  </div>
+
+  <section class="wrap" style="padding-top: 96px; display: flex; flex-direction: column; gap: 32px">
+    <div class="goalbox" style="padding-top: 28px; border-top: 1px solid #141414">
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 15px; color: #5c5c5c">One goal behind every project</span>
+        <p style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -0.02em">Give people a compelling reason to visit the Karrot Map tab.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
+        <span style="font-size: 17px; font-weight: 500">Daily map active users</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">+257%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">60,933 → 217,672 people a day taking an action in the tab</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
+        <span style="font-size: 17px; font-weight: 500">Daily search execution users</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">+69%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">25,462 → 43,056 people a day searching in the tab</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 120px; display: flex; flex-direction: column; gap: 64px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Context</h2>
+      <p style="margin: 0; color: #3d3d3d">Karrot started as a second-hand marketplace and grew into many local services. In late 2024, its third tab became the Neighborhood Map, built on Karrot’s own map. As a late entrant to maps, it needed a clear identity. So the goal for 2025 was simple: give people a compelling reason to visit the tab.</p>
+      <p style="margin: 0; color: #3d3d3d">Every project on this page served that goal, and was judged by the same two key metrics.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">My role</h2>
+      <p style="margin: 0; color: #3d3d3d">I was the project lead (DRI) for seven months. I set the UI direction for the map and owned project management, specs and policy, work across teams, commissioning user research, design, data analysis and deciding what came next. I also managed a mid-level designer and a PM intern.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Not another navigation map</h2>
+      <p style="margin: 0; color: #3d3d3d">Map-first apps like Google Maps and Naver Map digitise the paper map. They answer “Where am I?” and “How do I get there?” with routes, distances and real-time transit. A late entrant would never win that game, so I looked at what Karrot Map could digitise instead.</p>
+    </div>
+    <div class="two" style="gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 17px; font-weight: 600">The neighbourhood bulletin board</span>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 14px; border-left: 2px solid #e6e6e3"><span style="display: block; font-size: 16px; line-height: 1.45; color: #141414">“This is happening in our neighbourhood right now!”</span><span style="display: block; font-size: 16px; line-height: 1.45; color: #141414">“Closing-time discounts have started.”</span><span style="display: block; font-size: 16px; line-height: 1.45; color: #141414">“Weekend market in Seocho-gu.”</span></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5c5c5c">Lively, first-hand updates from neighbours matter more than perfect accuracy.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 17px; font-weight: 600">The local weekly paper, and word of mouth</span>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding-left: 14px; border-left: 2px solid #e6e6e3"><span style="display: block; font-size: 16px; line-height: 1.45; color: #141414">“A great restaurant to visit with kids.”</span><span style="display: block; font-size: 16px; line-height: 1.45; color: #141414">“Best cherry blossom spots in Seocho-gu.”</span></div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #5c5c5c">Curated, personal picks from the people who live there.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 16px">
+      <p style="margin: 0; color: #3d3d3d">That gave the map a clear role, set against two kinds of apps people already use.</p>
+    </div>
+    <div class="scroll">
+      <table class="tbl">
+        <thead><tr><th style="width: 16%"></th><th style="width: 26%">Map-first apps<br><span style="color:#8a8a86">Google Maps, Naver Map</span></th><th style="width: 26%">Map-enabled apps</th><th class="k" style="width: 32%">Karrot Map</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">What people want</td><td>Navigate and search for places</td><td>Discover content</td><td class="k">Explore and search local businesses around home</td></tr>
+          <tr><td class="rh">Role of the map</td><td>The core of the service</td><td>A layer that supports content</td><td class="k">A layer that supports content</td></tr>
+          <tr><td class="rh">Interface</td><td>The map is the main screen, rendered in real time at high precision</td><td>Reached one or two taps deep, from a place tag or search; a simple base map behind content</td><td class="k">Its own tab; a simple base map that sits behind content</td></tr>
+          <tr><td class="rh">Typical flow</td><td>Search a place → details → route</td><td>Discover content → check where it is → share or save</td><td class="k">Discover on the map → find something useful → follow, save or share → book, visit or buy</td></tr>
+          <tr><td class="rh">Where it ends</td><td>Arriving at a destination</td><td>Engaging, sharing or buying</td><td class="k">Booking, visiting or buying</td></tr>
+          <tr><td class="rh">Core data</td><td>Accurate place data, then reviews</td><td>Content from users and the web, then location</td><td class="k">Everything local, valuing what’s different over what’s exact, and neighbours’ posts; then location</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 16px">
+      <p style="margin: 0; color: #3d3d3d">Mapping how people moved through the tab, two jobs stood out: exploring the neighbourhood, and finding something specific fast. Each got its own goal and its own experiments. A third project made both jobs start from home.</p>
+    </div>
+    <div class="jobs">
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">01</span>
+        <span style="font-size: 20px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Explore</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Browse what’s happening nearby, with no particular destination.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d; padding-top: 12px; border-top: 1px solid #deded9"><span style="color: #5c5c5c">Goal:</span> longer sessions and repeat visits.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500">Moves daily map active users</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">02</span>
+        <span style="font-size: 20px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Find fast</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Look up a place or service and act on it: call, chat, book or visit.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d; padding-top: 12px; border-top: 1px solid #deded9"><span style="color: #5c5c5c">Goal:</span> find what you need quickly and complete the action.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500">Moves daily search execution users</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">03</span>
+        <span style="font-size: 20px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Start from home</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Centre the map on where people live, so what they see is truly local.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d; padding-top: 12px; border-top: 1px solid #deded9"><span style="color: #5c5c5c">Goal:</span> get people to register their home.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500">Supports exploring around home</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">01 · Explore</span>
+      <h2 id="explore" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Give the map something to discover</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> a lively map that people browse for longer and come back to.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Hypothesis 1: If more Karrot content lives on the map, more people will use it.</h3>
+      <p style="margin: 0; color: #3d3d3d">I surfaced Karrot’s strongest location-based content first: business news and coupons, and Neighborhood Life posts with a location. Then content no ordinary map has: food alleys and themed streets that formed on their own, missing person alerts, and photo posts like snowy streets and winter snacks.</p>
+    </div>
+    <div class="stage5 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 4% 44px; box-sizing: border-box; gap: 36px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-ct-news.webp" alt="Map with store news bubbles, News tags and coupon markers" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Store news</span> and coupons.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-ct-missing.webp" alt="Map with a missing person alert, shown with a neutral silhouette" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Missing persons</span> alerts.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-ct-community.webp" alt="Map with a neighbour’s post pinned near a station, among other posts and coupons" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Local posts</span> with a location.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-ct-events.webp" alt="Map with an event marker for a sled hill opening" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Events</span> nearby.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-ct-photos.webp" alt="Map with neighbours’ photos of snowy streets pinned around home" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Neighbourhood</span> photos.</p>
+      </div>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 12% 44px; box-sizing: border-box; gap: 36px 8%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-aoi-preview.webp" alt="Nonhyeon Food Alley outlined on the map, with a preview of tags, photos and a short description" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Areas of interest.</span> Streets that formed on their own appear as areas, with the shops inside.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-en-aoi-detail.webp" alt="Nonhyeon Food Alley page with photos, a description, and coupons from the shops along it" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Its own page.</span> Photos, a short story, and coupons from the shops along it.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px">
+      <span class="bignum" style="font-size: 44px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">1,600 → 180,000</span>
+      <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">daily users interacting with the map.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <p style="margin: 0; color: #3d3d3d">But user interviews told a different story. People still didn’t see Karrot Map as a neighbourhood map full of things to explore. So the next test went after the structure of the home screen itself.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px; padding-top: 40px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Hypothesis 2: If the home puts the map first, people will see it as a content map and explore more.</h3>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Experiment 1.</span> I gave the map more of the screen and added chips at the top, so people could filter content while browsing. Search moved into the sheet below.</p>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 12% 44px; box-sizing: border-box; gap: 36px 8%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-exp1-control.webp" alt="Control: search bar and chips over the map, with a sheet of service shortcuts and time deals" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Control.</span> The map shares the screen with shortcuts and deals.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-exp1-treatment.webp" alt="Treatment: a larger map with Home, Pickup and On Sale chips, and search in the sheet below" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Treatment.</span> A bigger map, filter chips on top, search in the sheet.</p>
+      </div>
+    </div>
+    <div class="two" style="gap: 20px 40px; padding-top: 8px">
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Primary metrics</span><span>Map exploration (taps, panning, zooming)</span><span>Map content clicks</span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Guardrail metrics</span><span>Search executions</span><span>Detail page views from the tab</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid #e6e6e3; max-width: 760px">
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">+57%</span><span style="color: #3d3d3d">Map exploration events</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">+124%</span><span style="color: #3d3d3d">Content exploration after tapping a marker</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">+30%</span><span style="color: #3d3d3d">Conversion to post details from the map</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">−54%</span><span style="color: #3d3d3d">Searches in the tab &nbsp;<span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; border: 1px solid #c9c9c5; color: #3d3d3d; font-weight: 500; white-space: nowrap">Guardrail</span></span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">+24%</span><span style="color: #3d3d3d">Click rate after a search</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <p style="margin: 0; color: #3d3d3d">The hypothesis held, but searches fell by more than half. The higher click rate after searching suggested we had mostly lost low-intent searches. Still, search was a guardrail, so instead of shipping I ran a second test.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Experiment 2.</span> Two ways to keep search where people expect it, while still giving the map more room.</p>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 44px; box-sizing: border-box; gap: 36px 4%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-exp2-control.webp" alt="Control: search bar and chips over the map, with a sheet of service shortcuts" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Control.</span> The current home.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-exp2-t1.webp" alt="Treatment 1: the same search bar, with a larger map and time deals in the sheet" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Treatment 1. <span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0">Shipped</span></span> The same search bar, with a bigger map.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-exp2-t2.webp" alt="Treatment 2: a search icon at the start of the chip row, and the search field in the sheet" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Treatment 2.</span> Search becomes an icon in the chip row, with the field in the sheet.</p>
+      </div>
+    </div>
+    <div class="scroll">
+      <table class="tbl fit" style="max-width: 760px">
+        <thead><tr><th>Metric</th><th class="n">Treatment 1</th><th class="n">Treatment 2</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">Search executions <span style="font-weight: 400; color: #5c5c5c">(guardrail)</span></td><td class="n" style="color:#141414">No difference</td><td class="n">−11%</td></tr>
+          <tr><td class="rh">Map exploration events</td><td class="n" style="color:#141414">+29%</td><td class="n">+33%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <p style="margin: 0; color: #3d3d3d">Treatment 1 lifted exploration less than Experiment 1 did, but it protected the guardrail while still improving exploration. We shipped it.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">02 · Find fast</span>
+      <h2 id="find" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Previews that answer the question</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> help people find what they need quickly, and act on it.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">The place preview, shown when you tap a pin and in search results, was designed when the map had little data. It led with a small image and the owner’s description, and relied on action buttons to convert. By June 2025, almost nobody tapped those buttons, on the map or in search.</p>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Hypothesis: If previews show richer information like benefits, review counts and photos, more people will open them and visit the business page.</h3>
+    </div>
+    <div class="two stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 48px 5% 44px; box-sizing: border-box; gap: 40px 6%; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0; width: 100%">
+        <span style="font-size: 15px; font-weight: 600">Before</span>
+        <div class="pair" style="justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-before.webp" alt="Before: preview with the owner’s description, one small photo, and chat, call and review buttons" loading="lazy" style="width: 100%; max-width: 220px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 220px"><span style="color: #141414; font-weight: 500">Preview.</span> The owner’s description, one small photo, and buttons.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-before-detail.webp" alt="Before: the business page, opened as a separate screen" loading="lazy" style="width: 100%; max-width: 212px; aspect-ratio: 375 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 212px"><span style="color: #141414; font-weight: 500">Business page.</span> A separate screen.</p>
+      </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0; width: 100%">
+        <span style="font-size: 15px; font-weight: 600">After</span>
+        <div class="pair" style="justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-bread.webp" alt="After: preview with regular benefits, a photo strip and tabs with a review count" loading="lazy" style="width: 100%; max-width: 220px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 220px"><span style="color: #141414; font-weight: 500">Preview.</span> Benefits, a photo strip, and tabs that show what’s inside.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-after-detail.webp" alt="After: the business page opens as a sheet over the map" loading="lazy" style="width: 100%; max-width: 220px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 220px"><span style="color: #141414; font-weight: 500">Business page.</span> Opens as a sheet over the map.</p>
+      </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Richer information, chosen by what each place offers.</span> The preview shows one highlight, in a set order: regular-customer benefits, then pickup discounts, then the menu. Up to five photos follow, with more a swipe away.</p>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-bread.webp" alt="A cafe preview highlighting a regular-customer benefit" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Benefits first.</span> A reward for regulars, when a place offers one.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-noodles.webp" alt="A noodle restaurant preview highlighting 10% off the first pickup order" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Then pickup discounts.</span> </p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-beauty.webp" alt="An eyelash salon preview highlighting a menu item and price" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Then the menu.</span> With a price, so people can decide on the spot.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Nudges into the business page.</span> A dot on News and a review count on Reviews give people a reason to open the page, and it opens on the tab they tapped.</p>
+    </div>
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-pv-bread.webp" alt="Preview with a dot on the News tab and a review count on the Reviews tab" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">The preview.</span> News has a dot. Reviews shows a count.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-nudge-news.webp" alt="Business page opened on the News tab, showing the latest store post" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Tap News.</span> The page opens on the latest post.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-nudge-reviews.webp" alt="Business page opened on the Reviews tab, with a prompt to rate the place" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Tap Reviews.</span> The page opens on reviews, with a prompt to add one.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">When there’s little to show.</span> Instead of an empty space, the preview asks neighbours to fill the gap.</p>
+    </div>
+    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 14% 44px; box-sizing: border-box; gap: 36px 8%; justify-items: center; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-prompt-photo.webp" alt="A preview with no photos, showing an Add photo button" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">No photos yet.</span> The preview asks for one.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+        <img src="assets/img/km-prompt-photo-review.webp" alt="A preview with no photos or reviews, showing Add photo and Write review buttons" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">No photos or reviews.</span> It asks for both.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">In search results.</span> Results got the same treatment: benefits and photos up front, a neighbour’s review, and for services, a button to request a quote.</p>
+    </div>
+    <div class="two stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 48px 6% 44px; box-sizing: border-box; gap: 40px 6%; align-items: start">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
+        <span style="font-size: 15px; font-weight: 600; width: 100%; max-width: 340px">Before</span>
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0; width: 100%; max-width: 340px">
+          <img src="assets/img/km-sr-asis-image.webp" alt="Search result before: name, owner’s description, tags and a row of photos" loading="lazy" style="width: 100%; aspect-ratio: 390 / 291; display: block; border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08)">
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Photo-led.</span> The owner’s description, tags, then photos.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0; width: 100%; max-width: 340px">
+          <img src="assets/img/km-sr-asis-default.webp" alt="Search result before: name, owner’s description and a single thumbnail" loading="lazy" style="width: 100%; aspect-ratio: 390 / 159; display: block; border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08)">
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Default.</span> One thumbnail beside the description.</p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
+        <span style="font-size: 15px; font-weight: 600; width: 100%; max-width: 340px">After</span>
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0; width: 100%; max-width: 340px">
+          <img src="assets/img/km-sr-tobe-benefit.webp" alt="Search result after: rating, a benefit, photos and a neighbour’s review" loading="lazy" style="width: 100%; aspect-ratio: 390 / 352; display: block; border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08)">
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Benefit and review.</span> A 15% pickup discount, photos, and a neighbour’s review.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0; width: 100%; max-width: 340px">
+          <img src="assets/img/km-sr-tobe-cta.webp" alt="Search result after, for a cleaning service: photos, a review and a request-a-quote button" loading="lazy" style="width: 100%; aspect-ratio: 390 / 353; display: block; border-radius: 14px; border: 1px solid rgba(0,0,0,0.06); background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08)">
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">With an action.</span> For services, a button to request a quote.</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Search results from the Korean app.</p>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 32px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Results</h3>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 36px">
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
+        <span style="font-size: 15px; font-weight: 600">From the map home</span>
+        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">33.8% → 34.6%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfa)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfa)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+2.38%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">4.0% → 4.2%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfb)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfb)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+6.24%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Preview to action: 1.3% → 1.5% (+8.77%). Preview clicks +3.71%, business page views +4.67%, preview click rate +1.07%.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
+        <span style="font-size: 15px; font-weight: 600">From search</span>
+        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">69.1% → 72.0%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfa)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfa)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.22%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">14.5% → 15.1%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfb)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfb)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.34%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Preview to action: 10.0% → 10.9% (+8.74%). Preview clicks +3.82%, business page views +5.08%, preview click rate +2.76%.</p>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Action is a conversion action on the business page, such as tapping Call or Chat.</p>
+    <div class="mx" style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3; align-items: baseline; margin-top: 8px; max-width: 760px"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">+22.7%</span><span style="color: #3d3d3d">Searches went up rather than down. Searches per user rose from 3.3 to 4.0: people found what they needed in the preview faster, and came back to search again. &nbsp;<span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; border: 1px solid #c9c9c5; color: #3d3d3d; font-weight: 500; white-space: nowrap">Guardrail</span></span></div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">03 · Start from home</span>
+      <h2 id="home" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Getting people to set their home</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> get 80% of people shown an estimated location to register their home.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">The tab’s strategy was to centre exploration on where people live. People without a registered home landed on an estimated location instead, but despite earlier attempts, only 0.7% of users had registered one.</p>
+      <p style="margin: 0; color: #3d3d3d">Showing someone a guess of where they live can feel sensitive. So in a three-week project with one frontend engineer, I led a test of three ways to show it, from proposal and design to analysis.</p>
+    </div>
+    <div class="homeg stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 48px 4% 44px; box-sizing: border-box; gap: 36px 4%; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
+        <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 1<br><span style="font-weight: 400; color: #5c5c5c">A precise pin</span></span>
+        <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-map.webp" alt="Treatment 1: a pin at the estimated home, with the prompt Explore the map around your home" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-set.webp" alt="Home setup: Let us know your home location. No exact address is required." loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
+        <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 2<br><span style="font-weight: 400; color: #5c5c5c">A soft boundary</span></span>
+        <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-map.webp" alt="Treatment 2: a shaded area instead of a precise point, with the same prompt" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-set.webp" alt="Home setup: move the map to set your location, then confirm" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
+        <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 3 <span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0">Shipped</span><br><span style="font-weight: 400; color: #5c5c5c">A small game</span></span>
+        <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-map.webp" alt="Treatment 3: a 500 m circle with the prompt Pin your home within 500 m and get 500 won" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-set.webp" alt="Challenge screen: Center of our home, perfectly at 500 m, with a 500 won first success reward" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 16px">
+      <div class="scroll">
+      <table class="tbl">
+        <thead><tr><th>Group</th><th class="n">Opened home setup</th><th class="n">Registered a home</th><th class="n">vs control</th><th class="n">Opened → registered</th><th class="n">Shown → registered</th></tr></thead>
+        <tbody>
+          <tr><td class="rh">Control</td><td class="n">12,511</td><td class="n">7,787</td><td class="n">–</td><td class="n">62.24%</td><td class="n">1.39%</td></tr>
+          <tr><td class="rh">Treatment 1 · precise pin</td><td class="n">17,228</td><td class="n">10,579</td><td class="n">+26.39%</td><td class="n">61.41%</td><td class="n">1.89%</td></tr>
+          <tr><td class="rh">Treatment 2 · soft boundary</td><td class="n">17,801</td><td class="n">10,891</td><td class="n">+28.50%</td><td class="n">61.18%</td><td class="n">1.95%</td></tr>
+          <tr class="win"><td class="rh">Treatment 3 · small game</td><td class="n">23,105</td><td class="n">15,821</td><td class="n">+50.78%</td><td class="n">68.47%</td><td class="n">2.83%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">August 11 to 24, 2025. About 558,000 people were shown the estimated home in each group, including a control group with no change.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <p style="margin: 0; color: #3d3d3d">All three lifted registrations by more than 25%. The game-like version did best, and we shipped it. The surprise: people didn’t push back much, even when their estimated home was shown with a precise pin.</p>
+    </div>
+    <div class="results" style="padding-top: 8px">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">10.5%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 1.3%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">of daily users had registered a home, two weeks after the test.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">26%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 10.5%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">four months after Treatment 3 rolled out.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">847k</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">homes registered</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">in total by January 2026.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Where the tab landed</h2>
+      <p style="margin: 0; color: #3d3d3d">The combined result of the work above, as of January 2026.</p>
+    </div>
+    <div class="results" style="row-gap: 48px">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">217,672</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 60,933 · +257%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">daily map active users, people who took an action in the tab. Key metric.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">43,056</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 25,462 · +69%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">daily search execution users. Key metric.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">71.8%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 19.4%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">of the tab’s active users took an action there.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">35.3%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 11.3%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">day-7 retention for people who visit the map tab.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">394.3k</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 6.49k · +5,975%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">daily clicks on map content.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">59.7%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">click rate</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">among daily users of map content.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px; padding-bottom: 152px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
+    </div>
+    <div class="learn">
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Decide what it is before designing it.</span><p style="margin: 0; color: #3d3d3d">Naming what Karrot Map was for, and what it wasn’t, made every later choice easier to judge.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Big numbers can hide a weak story.</span><p style="margin: 0; color: #3d3d3d">Map use grew more than 100 times, but interviews showed people still didn’t know what the map was for.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Set the guardrail before the test.</span><p style="margin: 0; color: #3d3d3d">It turned a clear win in Experiment 1 into a better decision in Experiment 2.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Test sensitive ideas instead of guessing.</span><p style="margin: 0; color: #3d3d3d">People minded an estimated home far less than we expected. Only a test could have told us that.</p></div>
+    </div>
+  </section>
+
+  <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
+    <a href="seed-design-system.html" style="text-decoration: none">Next: SEED design system →</a>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap">
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
+      <span style="color: #5c5c5c">[LinkedIn link]</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

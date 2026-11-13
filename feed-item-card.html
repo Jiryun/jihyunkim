@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feed Item Card · Jihyun Kim</title>
+<meta name="description" content="One card system for the home feed, built on a design system.">
+<meta property="og:title" content="Feed Item Card · Jihyun Kim">
+<meta property="og:description" content="One card system for the home feed, built on a design system.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23141414%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Helvetica,Arial,sans-serif%22 font-size=%2217%22 font-weight=%22600%22 fill=%22white%22 text-anchor=%22middle%22%3EJ%3C/text%3E%3C/svg%3E">
+<style>@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-sans-400.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/instrument-sans-500.woff2) format('woff2')}@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/instrument-sans-600.woff2) format('woff2')}</style>
+<style>
+body{margin:0;background:#ffffff}
+a{color:#141414}
+a:hover{color:#5c5c5c}
+.wrap{max-width:1120px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;box-sizing:content-box}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.stage3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 32px}
+@media (max-width:860px){
+.wrap{padding-left:20px;padding-right:20px}
+.meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.results{grid-template-columns:minmax(0,1fr)}
+.title-h{font-size:40px !important}
+.stage3{grid-template-columns:minmax(0,1fr)}
+.two{grid-template-columns:minmax(0,1fr)}
+.stage-pad{padding:32px 8% !important}
+.tree-pad{padding:24px 5% !important}
+}
+</style>
+</head>
+<body>
+<div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
+
+  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
+    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+    <nav aria-label="Main" style="display: flex; gap: 28px">
+      <a href="index.html#work" style="text-decoration: none">Work</a>
+      <a href="index.html#about" style="text-decoration: none">About</a>
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
+    </nav>
+  </header>
+
+  <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
+    <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
+    <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Feed Item Card</h1>
+    <p style="margin: 0; max-width: 680px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">One card system for the home feed, built on a design system.</p>
+    <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Role</span><span>Led the project and the design</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>Feed engineers. Design system team of 2 engineers and 2 designers</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>Design system 2022 to 2023. Feed Item Card 2024</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Market</span><span>South Korea</span></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <img src="assets/img/fic2-hero.webp" alt="The Karrot home feed on a phone, next to three Feed Item Cards for second-hand, used cars and jobs" style="width: 100%; height: auto; aspect-ratio: 2448 / 1398; display: block; border-radius: 24px; background: #f5f5f7">
+    </figure>
+  </div>
+
+  <section class="wrap" style="padding-top: 120px; display: flex; flex-direction: column; gap: 64px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Problem</h2>
+      <p style="margin: 0; color: #3d3d3d">The home feed was run by a backend-focused team, so each product team built its own feed list. The lists looked alike, but there were more than five versions, each fed by a different data provider. Even a small UI change took about three weeks.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">My role</h2>
+      <p style="margin: 0; color: #3d3d3d">I led the project, did all of the design, and wrote most of the spec with the engineers.</p>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-top: 56px">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <div style="background: #f5f5f7; border-radius: 24px; padding: 24px 5% 0; box-sizing: border-box; display: flex; justify-content: center; overflow: hidden">
+        <img src="assets/img/fic2-before-b.webp" alt="The home feed before: each card labelled with the data provider behind it, such as General Overview, Fleamarket Overview, General Business Overview and Ad Business Overview" loading="lazy" style="width: 100%; max-width: 560px; height: auto; aspect-ratio: 1400 / 1934; display: block">
+      </div>
+      <figcaption style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Before: one home feed, with each card type coming from a different data provider.</figcaption>
+    </figure>
+  </div>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">One card, four layers</h2>
+      <p style="margin: 0; color: #3d3d3d">The app ships a set of ready-made layouts, and the server picks which one to show. A card is built from sections, fixed areas that can’t be removed or reordered. Sections hold components, the smallest units. Each component has properties, set with engineers.</p>
+    </div>
+    <div class="tree-pad" style="background: #f5f5f7; border-radius: 20px; padding: 64px 12%; box-sizing: border-box">
+      <div style="background: #ffffff; border: 1px solid #d9d9d5; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline"><span style="font-weight: 600">Card</span><span style="font-size: 15px; color: #5c5c5c">One item in the feed. Built from sections.</span></div>
+        <div style="background: #f7f7f5; border: 1px solid #e0e0dc; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline"><span style="font-weight: 600">Section</span><span style="font-size: 15px; color: #5c5c5c">A fixed area. Can’t be removed, reordered or left empty.</span></div>
+          <div style="background: #ffffff; border: 1px solid #e0e0dc; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline"><span style="font-weight: 600">Component</span><span style="font-size: 15px; color: #5c5c5c">The smallest unit. Each has variants.</span></div>
+            <div style="background: #f7f7f5; border: 1px solid #e0e0dc; border-radius: 8px; padding: 14px; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline"><span style="font-weight: 600">Property</span><span style="font-size: 15px; color: #5c5c5c">Set with engineers. Some fixed to the design’s intent, some open to change.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <img src="assets/img/fic2-anatomy.webp" alt="Anatomy of a Feed Item Card: thumbnail, title, description, info, price, footnote, options and footer, each slot labelled" loading="lazy" style="width: 100%; height: auto; aspect-ratio: 2020 / 980; display: block; border-radius: 24px; background: #f5f5f7">
+      <figcaption style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Every slot has a name and a rule, on iOS and Android.</figcaption>
+    </figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <img src="assets/img/fic2-services.webp" alt="The same Feed Item Card used for second-hand, used cars, property, jobs, groups and giveaways" loading="lazy" style="width: 100%; height: auto; aspect-ratio: 2024 / 799; display: block; border-radius: 24px; background: #f5f5f7">
+      <figcaption style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">One card for every service on the home feed.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Locked where it matters, open where it helps</h2>
+      <p style="margin: 0; color: #3d3d3d">Big layout changes are locked. Small ones, like thumbnail size or whether body text shows, are open, so teams can run controlled tests without breaking the feed. That made the home feed experiments on used cars, property and store news possible.</p>
+    </div>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+      <img src="assets/img/fic2-variations.webp" alt="The same listing card three ways: the default, with a description, and with a footer action" loading="lazy" style="width: 100%; height: auto; aspect-ratio: 2024 / 519; display: block; border-radius: 24px; background: #f5f5f7">
+      <figcaption style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Small changes stay open: the same card with a description, or with a footer action.</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The design system underneath</h2>
+      <p style="margin: 0; color: #3d3d3d">Two years earlier, I joined Karrot’s design system team. With two frontend engineers and two designers, we built the foundations, such as typography and colour tokens, then components and templates such as buttons, navigation and error pages, with guidelines for each. I wrote most of the guidelines and built over half of the components and templates. This work became SEED, Karrot’s design system.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Results</h2>
+    </div>
+    <div class="results" style="padding-top: 28px; border-top: 1px solid #e6e6e3">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">3 weeks → 3 days</span>
+        <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">to roll out a feed change, 80% faster.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">100%</span>
+        <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">adoption of design system foundations and icons.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">90%+</span>
+        <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">adoption of components, mainly buttons and navigation.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 136px; padding-bottom: 152px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The thread</h2>
+      <p style="margin: 0; color: #3d3d3d">A design system in 2022, a server-driven feed in 2024, and an AI design skill in 2026. Each one let a team ship faster with fewer design bottlenecks. <a href="buy-now.html">See the design skill in Buy now</a>.</p>
+    </div>
+  </section>
+
+  <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
+    <a href="index.html#work" style="text-decoration: none">← All work</a>
+    <div style="display: flex; gap: 28px; flex-wrap: wrap">
+      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
+      <span style="color: #5c5c5c">[LinkedIn link]</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
