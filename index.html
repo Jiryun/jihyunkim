@@ -34,19 +34,23 @@ a:hover{color:#5c5c5c}
 .cl-full{display:none !important}
 .cl-short{display:block}
 }
+#work{scroll-margin-top:96px}#path,#about{scroll-margin-top:60px}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(20,20,20,0.06)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.topbar{background:#ffffff}}
 </style>
 </head>
 <body>
 <div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased">
 
-  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
-    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
-    <nav aria-label="Main" style="display: flex; gap: 28px">
-      <a href="#work" style="text-decoration: none">Work</a>
-      <a href="#about" style="text-decoration: none">About</a>
-      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
-    </nav>
-  </header>
+  <div class="topbar">
+    <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 18px; padding-bottom: 18px; font-size: 15px">
+      <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+      <nav aria-label="Main" style="display: flex; gap: 28px">
+        <a href="#work" style="text-decoration: none">Work</a>
+        <a href="#path" style="text-decoration: none">About</a>
+      </nav>
+    </header>
+  </div>
 
   <section class="wrap" style="padding-top: 104px; padding-bottom: 128px; display: flex; flex-direction: column; gap: 28px">
     <h1 class="intro-h" style="margin: 0; font-size: 64px; line-height: 1.05; font-weight: 500; letter-spacing: -0.035em">Jihyun Kim, Product designer</h1>

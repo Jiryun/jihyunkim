@@ -61,25 +61,82 @@ a:hover{color:#5c5c5c}
 .stage-pad{padding:32px 6% !important}
 .tbl{min-width:640px}
 }
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+h1[id],h2[id]{scroll-margin-top:132px}
+.toc{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:50}
+.toc-rail{display:flex;flex-direction:column;align-items:flex-end;gap:10px;padding:14px 6px}
+.toc-dash{display:block;width:12px;height:2px;border-radius:2px;background:#d2d2cd;transition:width .2s ease,background-color .2s ease}
+.toc-dash.is-active{width:20px;background:#141414}
+.toc:hover .toc-dash{background:#bdbdb7}
+.toc:hover .toc-dash.is-active{background:#141414}
+.toc-panel{position:absolute;right:0;top:50%;width:248px;max-height:min(70vh,560px);overflow-y:auto;box-sizing:border-box;padding:8px;display:flex;flex-direction:column;gap:2px;background:#ffffff;border:1px solid #e6e6e3;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,0.04),0 12px 32px rgba(0,0,0,0.10);opacity:0;pointer-events:none;transform:translate(8px,-50%);transition:opacity .18s ease,transform .18s ease}
+.toc:hover .toc-panel,.toc:focus-within .toc-panel{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+.toc-title{padding:6px 10px 8px;font-size:12px;line-height:1.3;letter-spacing:0.02em;color:#8f8f8a}
+.toc-link{display:block;padding:7px 10px;border-radius:8px;font-size:14px;line-height:1.35;color:#5c5c5c;text-decoration:none}
+.toc-link:hover{background:#f2f2f0;color:#141414}
+.toc-link:focus-visible{outline:2px solid #141414;outline-offset:-2px}
+.toc-link.is-active{color:#141414;font-weight:500}
+@media (max-width:1199px){.toc{display:none}}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(20,20,20,0.06)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.topbar{background:#ffffff}}
+.nx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nx-card{display:flex;flex-direction:column;aspect-ratio:11 / 12;background:#f2f2f0;border-radius:24px;overflow:hidden;text-decoration:none;color:#141414;transition:background-color .2s ease}
+.nx-card:hover{background:#ebebe8;color:#141414}
+.nx-card:focus-visible{outline:2px solid #141414;outline-offset:3px}
+.nx-title{display:block;padding:32px 32px 0;font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-0.02em;text-wrap:balance}
+.nx-shot{display:block;flex:1;min-height:0;padding:28px 32px 0}
+.nx-shot img{display:block;width:100%;height:auto;border-radius:28px 28px 0 0;border:1px solid rgba(0,0,0,0.06);border-bottom:0;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 16px 40px rgba(0,0,0,0.08);background:#ffffff;transition:transform .3s ease}
+.nx-card:hover .nx-shot img{transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.nx-shot img{transition:none}.nx-card:hover .nx-shot img{transform:none}}
+@media (max-width:1023px){.nx-title{font-size:21px;padding:24px 24px 0}.nx-shot{padding:22px 24px 0}}
+@media (max-width:860px){.nx-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scroll-padding-left:20px;scrollbar-width:none}.nx-grid::-webkit-scrollbar{display:none}.nx-card{scroll-snap-align:start}}
 </style>
 </head>
 <body>
 <div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
 
-  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
-    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
-    <nav aria-label="Main" style="display: flex; gap: 28px">
-      <a href="index.html#work" style="text-decoration: none">Work</a>
-      <a href="index.html#about" style="text-decoration: none">About</a>
-      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
-    </nav>
-  </header>
+  <nav class="toc" aria-label="On this page">
+    <div class="toc-rail" aria-hidden="true">
+      <span class="toc-dash" data-toc="overview"></span>
+      <span class="toc-dash" data-toc="context"></span>
+      <span class="toc-dash" data-toc="my-role"></span>
+      <span class="toc-dash" data-toc="strategy"></span>
+      <span class="toc-dash" data-toc="explore"></span>
+      <span class="toc-dash" data-toc="find"></span>
+      <span class="toc-dash" data-toc="home"></span>
+      <span class="toc-dash" data-toc="results"></span>
+      <span class="toc-dash" data-toc="learned"></span>
+    </div>
+    <div class="toc-panel">
+      <span class="toc-title">On this page</span>
+      <a class="toc-link" data-toc="overview" href="#overview">Overview</a>
+      <a class="toc-link" data-toc="context" href="#context">Context</a>
+      <a class="toc-link" data-toc="my-role" href="#my-role">My role</a>
+      <a class="toc-link" data-toc="strategy" href="#strategy">Strategy</a>
+      <a class="toc-link" data-toc="explore" href="#explore">Explore</a>
+      <a class="toc-link" data-toc="find" href="#find">Find fast</a>
+      <a class="toc-link" data-toc="home" href="#home">Start from home</a>
+      <a class="toc-link" data-toc="results" href="#results">Results</a>
+      <a class="toc-link" data-toc="learned" href="#learned">What I learned</a>
+    </div>
+  </nav>
+
+  <div class="topbar">
+    <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 18px; padding-bottom: 18px; font-size: 15px">
+      <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+      <nav aria-label="Main" style="display: flex; gap: 28px">
+        <a href="index.html#work" style="text-decoration: none">Work</a>
+        <a href="index.html#path" style="text-decoration: none">About</a>
+      </nav>
+    </header>
+  </div>
 
   <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
     <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
     <div style="display: flex; flex-direction: column; gap: 12px">
       <span style="font-size: 17px; line-height: 1.4; font-weight: 500; color: #5c5c5c">Karrot Map</span>
-      <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">61K → 218K Daily Users</h1>
+      <h1 id="overview" class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Karrot map: 61K → 218K Daily Users</h1>
     </div>
     <p style="margin: 0; max-width: 680px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Giving a new neighbourhood map a reason to visit.</p>
     <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
@@ -119,19 +176,20 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 120px; display: flex; flex-direction: column; gap: 64px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Context</h2>
+      <h2 id="context" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Context</h2>
       <p style="margin: 0; color: #3d3d3d">Karrot started as a second-hand marketplace and grew into many local services. In late 2024, its third tab became the Neighborhood Map, built on Karrot’s own map. As a late entrant to maps, it needed a clear identity. So the goal for 2025 was simple: give people a compelling reason to visit the tab.</p>
       <p style="margin: 0; color: #3d3d3d">Every project on this page served that goal, and was judged by the same two key metrics.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">My role</h2>
+      <h2 id="my-role" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">My role</h2>
       <p style="margin: 0; color: #3d3d3d">I was the project lead (DRI) for seven months. I set the UI direction for the map and owned project management, specs and policy, work across teams, commissioning user research, design, data analysis and deciding what came next. I also managed a mid-level designer and a PM intern.</p>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Not another navigation map</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Strategy</span>
+      <h2 id="strategy" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Not another navigation map</h2>
       <p style="margin: 0; color: #3d3d3d">Map-first apps like Google Maps and Naver Map digitise the paper map. They answer “Where am I?” and “How do I get there?” with routes, distances and real-time transit. A late entrant would never win that game, so I looked at what Karrot Map could digitise instead.</p>
     </div>
     <div class="two" style="gap: 20px">
@@ -202,24 +260,24 @@ a:hover{color:#5c5c5c}
     </div>
     <div class="stage5 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 4% 44px; box-sizing: border-box; gap: 36px 3%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
-        <img src="assets/img/km-en-ct-news.webp" alt="Map with store news bubbles, News tags and coupon markers" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Store news</span> and coupons.</p>
+        <img src="assets/img/km-ux-store.webp" alt="A store selected on the map, with its news card and a 10% off coupon at the bottom, and a missing neighbour alert nearby" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Store news.</span> Tapping a store opens its latest news and offer, right on the map.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
-        <img src="assets/img/km-en-ct-missing.webp" alt="Map with a missing person alert, shown with a neutral silhouette" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Missing persons</span> alerts.</p>
+        <img src="assets/img/km-ux-posts.webp" alt="Map with neighbours’ photos and short posts pinned where they happened, including winter scenes and a post about a lost cat" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Neighbours’ posts.</span> Photos and short posts, pinned where they happened.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
-        <img src="assets/img/km-en-ct-community.webp" alt="Map with a neighbour’s post pinned near a station, among other posts and coupons" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Local posts</span> with a location.</p>
+        <img src="assets/img/km-ux-single.webp" alt="A post opened as a card over the map: Waryong Park, with like and comment buttons" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">One post at a time.</span> Tapping a pin opens the post as a card over the map.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
-        <img src="assets/img/km-en-ct-events.webp" alt="Map with an event marker for a sled hill opening" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Events</span> nearby.</p>
+        <img src="assets/img/km-ux-comments.webp" alt="Neighbours’ reactions sheet with comments and a text field, open over the map" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Reactions in place.</span> Comments open in a sheet, so the map stays where it was.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
-        <img src="assets/img/km-en-ct-photos.webp" alt="Map with neighbours’ photos of snowy streets pinned around home" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Neighbourhood</span> photos.</p>
+        <img src="assets/img/km-ux-commented.webp" alt="The reactions sheet after posting, with the new comment highlighted at the top" loading="lazy" style="width: 100%; max-width: 190px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 190px"><span style="color: #141414; font-weight: 500">Posted.</span> A new comment is highlighted at the top, so it’s easy to find.</p>
       </div>
     </div>
     <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 12% 44px; box-sizing: border-box; gap: 36px 8%; justify-items: center; align-items: start">
@@ -417,12 +475,12 @@ a:hover{color:#5c5c5c}
     <div style="display: flex; flex-direction: column; gap: 36px">
       <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
         <span style="font-size: 15px; font-weight: 600">From the map home</span>
-        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">33.8% → 34.6%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfa)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfa)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+2.38%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">4.0% → 4.2%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfb)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfb)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+6.24%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
+        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">33.8% → 34.6%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfa)"></line></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfa)"></line></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+2.38%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">4.0% → 4.2%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-hfb)"></line></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-hfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-hfb)"></line></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+6.24%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
         <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Preview to action: 1.3% → 1.5% (+8.77%). Preview clicks +3.71%, business page views +4.67%, preview click rate +1.07%.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
         <span style="font-size: 15px; font-weight: 600">From search</span>
-        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">69.1% → 72.0%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfa)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfa)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.22%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">14.5% → 15.1%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfb)"/></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"/></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfb)"/></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.34%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
+        <div class="fn stage-pad" style="background: #f2f2f0; border-radius: 16px; padding: 28px 4%"><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Preview</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">69.1% → 72.0%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfa)"></line></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfa)"></line></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.22%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Business page</div><div class="fa" style="display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0"><span style="font-size: 14px; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap">14.5% → 15.1%</span><svg class="fa-h" width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true" style="display: block"><defs><marker id="ah-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="0" y1="6" x2="98" y2="6" stroke="#8a8a86" stroke-width="1.5" vector-effect="non-scaling-stroke" marker-end="url(#ah-sfb)"></line></svg><svg class="fa-v" width="12" height="28" viewBox="0 0 12 28" aria-hidden="true" style="display: none"><defs><marker id="av-sfb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a86"></path></marker></defs><line x1="6" y1="0" x2="6" y2="26" stroke="#8a8a86" stroke-width="1.5" marker-end="url(#av-sfb)"></line></svg><span style="font-size: 13px; line-height: 1.3; color: #5c5c5c; white-space: nowrap">+4.34%</span></div><div style="background: #ffffff; border: 1px solid #e6e6e3; border-radius: 14px; padding: 14px 16px; font-size: 15px; line-height: 1.35; font-weight: 500; text-align: center">Action</div></div>
         <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c">Preview to action: 10.0% → 10.9% (+8.74%). Preview clicks +3.82%, business page views +5.08%, preview click rate +2.76%.</p>
       </div>
     </div>
@@ -444,22 +502,22 @@ a:hover{color:#5c5c5c}
       <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
         <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 1<br><span style="font-weight: 400; color: #5c5c5c">A precise pin</span></span>
         <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-map.webp" alt="Treatment 1: a pin at the estimated home, with the prompt Explore the map around your home" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-set.webp" alt="Home setup: Let us know your home location. No exact address is required." loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-map-v2.webp" alt="Treatment 1: a pin at the estimated home, with the prompt Explore the map around your home" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t1-set-v2.webp" alt="Home setup: Let us know your home location. No exact address is required." loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
         <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 2<br><span style="font-weight: 400; color: #5c5c5c">A soft boundary</span></span>
         <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-map.webp" alt="Treatment 2: a shaded area instead of a precise point, with the same prompt" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-set.webp" alt="Home setup: move the map to set your location, then confirm" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-map-v2.webp" alt="Treatment 2: a shaded area instead of a precise point, with the same prompt" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t2-set-v2.webp" alt="Home setup: move the map to set your location, then confirm" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0; width: 100%">
         <span style="font-size: 15px; font-weight: 600; line-height: 1.35">Treatment 3 <span style="display: inline-block; font-size: 12px; line-height: 1; padding: 5px 9px; border-radius: 999px; background: #141414; color: #ffffff; font-weight: 500; letter-spacing: 0">Shipped</span><br><span style="font-weight: 400; color: #5c5c5c">A small game</span></span>
         <div class="pair" style="justify-items: center; align-items: start; gap: 16px 8%">
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-map.webp" alt="Treatment 3: a 500 m circle with the prompt Pin your home within 500 m and get 500 won" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
-          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-set.webp" alt="Challenge screen: Center of our home, perfectly at 500 m, with a 500 won first success reward" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 230 / 496; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-map-v2.webp" alt="Treatment 3: a 500 m circle with the prompt Pin your home within 500 m and get 500 won" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
+          <div style="width: 100%; display: flex; justify-content: center; min-width: 0"><img src="assets/img/km-home-t3-set-v2.webp" alt="Challenge screen: Pin your home within 500 m, with a 500 won reward for the first success" loading="lazy" style="width: 100%; max-width: 170px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; display: block; border-radius: 18px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff"></div>
         </div>
       </div>
     </div>
@@ -501,7 +559,8 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Where the tab landed</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Results</span>
+      <h2 id="results" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Where the tab landed</h2>
       <p style="margin: 0; color: #3d3d3d">The combined result of the work above, as of January 2026.</p>
     </div>
     <div class="results" style="row-gap: 48px">
@@ -540,7 +599,7 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px; padding-bottom: 152px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
+      <h2 id="learned" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
     </div>
     <div class="learn">
       <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Decide what it is before designing it.</span><p style="margin: 0; color: #3d3d3d">Naming what Karrot Map was for, and what it wasn’t, made every later choice easier to judge.</p></div>
@@ -550,13 +609,35 @@ a:hover{color:#5c5c5c}
     </div>
   </section>
 
+  <section class="wrap" aria-labelledby="more-work" style="padding-top: 56px; padding-bottom: 120px; border-top: 1px solid #e6e6e3; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
+      <h2 id="more-work" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">More work</h2>
+      <a href="index.html#work" style="text-decoration: none; font-size: 15px">All work</a>
+    </div>
+    <div class="nx-grid">
+      <a class="nx-card" href="seed-design-system.html">
+        <span class="nx-title">SEED Design System: From Scratch to 90%+ Adoption</span>
+        <span class="nx-shot"><img src="assets/img/ds-buttons-panel.webp" alt="" width="984" height="1124" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="feed-item-card.html">
+        <span class="nx-title">Feed Card System: From 3 Weeks to 3 Days</span>
+        <span class="nx-shot"><img src="assets/img/bsh-home-2024-top-v2.webp" alt="" width="750" height="1624" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="buy-now.html">
+        <span class="nx-title">Selling Nationwide</span>
+        <span class="nx-shot"><img src="assets/img/article.webp" alt="" width="390" height="844" loading="lazy"></span>
+      </a>
+    </div>
+  </section>
+
   <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
-    <a href="seed-design-system.html" style="text-decoration: none">Next: SEED design system →</a>
+    <span style="font-weight: 600">Jihyun Kim</span>
     <div style="display: flex; gap: 28px; flex-wrap: wrap">
       <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
       <a href="https://www.linkedin.com/in/journy/" target="_blank" rel="noopener" style="text-decoration: none">LinkedIn</a>
     </div>
   </footer>
 </div>
+<script>(function(){var l=[].slice.call(document.querySelectorAll(".toc [data-toc]"));if(!l.length)return;var ids=[];l.forEach(function(a){var i=a.getAttribute("data-toc");if(ids.indexOf(i)<0)ids.push(i)});function u(){var c=ids[0];ids.forEach(function(i){var e=document.getElementById(i);if(e&&e.getBoundingClientRect().top<=160)c=i});l.forEach(function(a){a.classList.toggle("is-active",a.getAttribute("data-toc")===c)})}window.addEventListener("scroll",u,{passive:true});u()})();</script>
 </body>
 </html>

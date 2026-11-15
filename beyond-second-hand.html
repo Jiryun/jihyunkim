@@ -20,6 +20,37 @@ a:hover{color:#5c5c5c}
 .goalbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
 .stage2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .stage3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.tbl th{font-weight:400;color:#5c5c5c;text-align:left;padding:0 16px 10px 0;font-size:14px;vertical-align:bottom}
+.tbl td{padding:12px 16px 12px 0;border-top:1px solid #e6e6e3;vertical-align:top;color:#3d3d3d}
+.tbl tr:last-child td{border-bottom:1px solid #e6e6e3}
+.tbl td.rh{color:#141414}
+.tbl .n{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tbl th.n{text-align:right}
+.tbl .k{background:#f2f2f0;padding-left:16px;color:#141414;font-weight:500}
+.tbl th.k{border-radius:12px 12px 0 0;padding-top:12px;font-weight:600}
+.pcard{display:flex;flex-direction:column;background:#f2f2f0;border-radius:20px;overflow:hidden;text-decoration:none;color:#141414;transition:background .2s ease}
+.pcard:hover{background:#ebebe6;color:#141414}
+.pcard img{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover}
+.pcard .pgo{transition:transform .2s ease}
+.pcard:hover .pgo{transform:translateY(3px)}
+#tf,#feed,#mk{scroll-margin-top:132px}
+.fx{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px 48px;align-items:start}
+.fxcards{display:flex;flex-direction:column;gap:22px;padding:32px;background:#f2f2f0;border-radius:20px}
+.fxc{margin:0;display:flex;flex-direction:column;gap:10px}
+.fxc figcaption{font-size:14px;line-height:1.45;color:#5c5c5c}
+.fxc figcaption b{color:#141414;font-weight:500}
+.fxc img{width:100%;max-width:400px;height:auto;display:block;background:#ffffff;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 8px 24px rgba(0,0,0,0.06)}
+.fxc.dim img{opacity:.92}
+.snr{display:grid;grid-template-columns:200px minmax(0,1fr);gap:14px 32px;padding:28px 0;border-top:1px solid #deded9}
+.snr:first-child{border-top:0;padding-top:0}
+.snc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px;align-items:start}
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:190px minmax(0,1fr) 56px;gap:14px;align-items:center;font-size:15px;line-height:1.35}
+.bar .tr{height:10px;border-radius:5px;background:#e3e3df;overflow:hidden}
+.bar .fi{height:100%;border-radius:5px;background:#8a8a86}
+.bar .fi.on{background:#141414}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums;color:#141414;font-weight:500}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .tabs5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
@@ -48,6 +79,11 @@ a:hover{color:#5c5c5c}
 .title-h{font-size:40px !important}
 .stage2{grid-template-columns:minmax(0,1fr)}
 .stage3{grid-template-columns:minmax(0,1fr)}
+.fx{grid-template-columns:minmax(0,1fr)}
+.fxcards{padding:20px}
+.snr{grid-template-columns:minmax(0,1fr)}
+.snc{grid-template-columns:minmax(0,1fr)}
+.bar{grid-template-columns:118px minmax(0,1fr) 48px;gap:10px;font-size:14px}
 .two{grid-template-columns:minmax(0,1fr)}
 .three{grid-template-columns:minmax(0,1fr)}
 .tabs5{grid-template-columns:minmax(0,1fr)}
@@ -60,31 +96,82 @@ a:hover{color:#5c5c5c}
 .flow .arr{padding-top:0;transform:rotate(90deg)}
 .stage-pad{padding:32px 6% !important}
 }
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+h1[id],h2[id]{scroll-margin-top:132px}
+.toc{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:50}
+.toc-rail{display:flex;flex-direction:column;align-items:flex-end;gap:10px;padding:14px 6px}
+.toc-dash{display:block;width:12px;height:2px;border-radius:2px;background:#d2d2cd;transition:width .2s ease,background-color .2s ease}
+.toc-dash.is-active{width:20px;background:#141414}
+.toc:hover .toc-dash{background:#bdbdb7}
+.toc:hover .toc-dash.is-active{background:#141414}
+.toc-panel{position:absolute;right:0;top:50%;width:248px;max-height:min(70vh,560px);overflow-y:auto;box-sizing:border-box;padding:8px;display:flex;flex-direction:column;gap:2px;background:#ffffff;border:1px solid #e6e6e3;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,0.04),0 12px 32px rgba(0,0,0,0.10);opacity:0;pointer-events:none;transform:translate(8px,-50%);transition:opacity .18s ease,transform .18s ease}
+.toc:hover .toc-panel,.toc:focus-within .toc-panel{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+.toc-title{padding:6px 10px 8px;font-size:12px;line-height:1.3;letter-spacing:0.02em;color:#8f8f8a}
+.toc-link{display:block;padding:7px 10px;border-radius:8px;font-size:14px;line-height:1.35;color:#5c5c5c;text-decoration:none}
+.toc-link:hover{background:#f2f2f0;color:#141414}
+.toc-link:focus-visible{outline:2px solid #141414;outline-offset:-2px}
+.toc-link.is-active{color:#141414;font-weight:500}
+@media (max-width:1199px){.toc{display:none}}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(20,20,20,0.06)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.topbar{background:#ffffff}}
+.nx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nx-card{display:flex;flex-direction:column;aspect-ratio:11 / 12;background:#f2f2f0;border-radius:24px;overflow:hidden;text-decoration:none;color:#141414;transition:background-color .2s ease}
+.nx-card:hover{background:#ebebe8;color:#141414}
+.nx-card:focus-visible{outline:2px solid #141414;outline-offset:3px}
+.nx-title{display:block;padding:32px 32px 0;font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-0.02em;text-wrap:balance}
+.nx-shot{display:block;flex:1;min-height:0;padding:28px 32px 0}
+.nx-shot img{display:block;width:100%;height:auto;border-radius:28px 28px 0 0;border:1px solid rgba(0,0,0,0.06);border-bottom:0;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 16px 40px rgba(0,0,0,0.08);background:#ffffff;transition:transform .3s ease}
+.nx-card:hover .nx-shot img{transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.nx-shot img{transition:none}.nx-card:hover .nx-shot img{transform:none}}
+@media (max-width:1023px){.nx-title{font-size:21px;padding:24px 24px 0}.nx-shot{padding:22px 24px 0}}
+@media (max-width:860px){.nx-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scroll-padding-left:20px;scrollbar-width:none}.nx-grid::-webkit-scrollbar{display:none}.nx-card{scroll-snap-align:start}}
 </style>
 </head>
 <body>
 <div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
 
-  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
-    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
-    <nav aria-label="Main" style="display: flex; gap: 28px">
-      <a href="index.html#work" style="text-decoration: none">Work</a>
-      <a href="index.html#about" style="text-decoration: none">About</a>
-      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
-    </nav>
-  </header>
+  <nav class="toc" aria-label="On this page">
+    <div class="toc-rail" aria-hidden="true">
+      <span class="toc-dash" data-toc="overview"></span>
+      <span class="toc-dash" data-toc="tf"></span>
+      <span class="toc-dash" data-toc="feed"></span>
+      <span class="toc-dash" data-toc="mk"></span>
+      <span class="toc-dash" data-toc="outcome"></span>
+      <span class="toc-dash" data-toc="learned"></span>
+    </div>
+    <div class="toc-panel">
+      <span class="toc-title">On this page</span>
+      <a class="toc-link" data-toc="overview" href="#overview">Overview</a>
+      <a class="toc-link" data-toc="tf" href="#tf">Part 1</a>
+      <a class="toc-link" data-toc="feed" href="#feed">Part 2</a>
+      <a class="toc-link" data-toc="mk" href="#mk">Part 3</a>
+      <a class="toc-link" data-toc="outcome" href="#outcome">Outcome</a>
+      <a class="toc-link" data-toc="learned" href="#learned">What I learned</a>
+    </div>
+  </nav>
+
+  <div class="topbar">
+    <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 18px; padding-bottom: 18px; font-size: 15px">
+      <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+      <nav aria-label="Main" style="display: flex; gap: 28px">
+        <a href="index.html#work" style="text-decoration: none">Work</a>
+        <a href="index.html#path" style="text-decoration: none">About</a>
+      </nav>
+    </header>
+  </div>
 
   <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
     <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
     <div style="display: flex; flex-direction: column; gap: 12px">
       <span style="font-size: 17px; line-height: 1.4; font-weight: 500; color: #5c5c5c">Karrot</span>
-      <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Beyond the Marketplace</h1>
+      <h1 id="overview" class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Beyond the Marketplace</h1>
     </div>
     <p style="margin: 0; max-width: 680px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Helping people see Karrot as more than a marketplace.</p>
     <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
-      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Role</span><span>Product designer on a company task force, then lead designer for My Karrot</span></div>
-      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>Designers, a researcher, PMs, engineers, a data analyst, the CPO and CEO</span></div>
-      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>Nov 2022 to Mar 2023, then 3 months in 2024</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Role</span><span>Product designer on a company task force, then designer for the home feed and lead designer for My Karrot</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>Designers, a researcher, PMs, engineers, data analysts, the CPO and CEO</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>Nov 2022 to Mar 2023, then Feb to Dec 2024</span></div>
       <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Market</span><span>South Korea</span></div>
     </div>
   </section>
@@ -98,38 +185,53 @@ a:hover{color:#5c5c5c}
   <section class="wrap" style="padding-top: 96px; display: flex; flex-direction: column; gap: 32px">
     <div class="goalbox" style="padding-top: 28px; border-top: 1px solid #141414">
       <div style="display: flex; flex-direction: column; gap: 12px">
-        <span style="font-size: 15px; color: #5c5c5c">One goal behind both projects</span>
+        <span style="font-size: 15px; color: #5c5c5c">One goal behind all three projects</span>
         <p style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -0.02em">Make people see Karrot as a local super app, not just a second-hand marketplace.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
-        <span style="font-size: 17px; font-weight: 500">My Karrot tab page views</span>
-        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">+50.4%</span>
-        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">7.38M → 11.1M, four months after the redesign</span>
+        <span style="font-size: 15px; color: #5c5c5c">Outcome</span>
+        <span style="font-size: 17px; font-weight: 500">People who used Karrot only to trade second-hand</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">85% → 24%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">Feb 2023 to Mar 2025, Karrot user surveys</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
         <span style="font-size: 15px; color: #5c5c5c">Key metric</span>
         <span style="font-size: 17px; font-weight: 500">Service entries through My Karrot</span>
-        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">429k</span>
-        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">from 281k one month in, +52.6% by month six</span>
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; padding-top: 6px">+52.6%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c; font-variant-numeric: tabular-nums">281k → 429k, one to six months after the redesign</span>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 24px">
-      <p style="margin: 0; color: #3d3d3d">As of 2022, most people used Karrot for one thing: second-hand trading. Getting to anything else was hard, and people who did find another service often couldn’t find it again. This page covers two projects that tackled that from both ends: a task force that rethought the whole app, and the redesign of My Karrot and All Services that I led afterward.</p>
+      <p style="margin: 0; color: #3d3d3d">As of 2022, most people used Karrot for one thing: second-hand trading. Getting to anything else was hard, and people who did find another service often couldn’t find it again. This page covers three pieces of work: a task force that rethought the whole app, a year of home feed experiments that made other services feel native, and the redesign of My Karrot and All Services that I led.</p>
     </div>
-    <div class="two">
-      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
-        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Part 1 · Nov 2022 to Mar 2023</span>
-        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">A task force to rethink the whole app</span>
-        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I analysed the app’s structure and flows, and defined problems and proposals for Home, Neighborhood Life and My Karrot.</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">Proposals for Home, Search and All Services were all built.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #f2f2f0; border-radius: 20px">
-        <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Part 2 · 3 months in 2024</span>
-        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">My Karrot and All Services</span>
-        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I set the direction, planned and ran the experiments, and took part in every decision from start to finish.</p>
-        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9">My Karrot page views +50.4%. Karrot Pay sign-ups +253%.</p>
-      </div>
+    <div class="three">
+      <a class="pcard" href="#tf">
+        <img src="assets/img/bsh-cover-p1-v2.webp" alt="Karrot home in 2022, a feed of second-hand listings" loading="lazy">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 28px; flex: 1">
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums"><span>Part 1 · Nov 2022 to Mar 2023</span><span class="pgo" aria-hidden="true">↓</span></span>
+          <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">A task force to rethink the whole app</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I analysed the app’s structure and flows, and defined problems and proposals for Home, Neighborhood Life and My Karrot.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9; margin-top: auto">Proposals for Home, Search and All Services were all built.</p>
+        </div>
+      </a>
+      <a class="pcard" href="#feed">
+        <img src="assets/img/bsh-cover-p2-v2.webp" alt="Three home feed cards stacked: a used car, an apartment and a store news post, each styled like a second-hand listing" loading="lazy">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 28px; flex: 1">
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums"><span>Part 2 · Feb to Dec 2024</span><span class="pgo" aria-hidden="true">↓</span></span>
+          <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">Home feed experiments</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">As the feed’s only designer, I changed how used cars, property and store news appear, so they read like the listings people came for.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9; margin-top: auto">Used-car clicks +23.3% and store news conversion +7%, against control.</p>
+        </div>
+      </a>
+      <a class="pcard" href="#mk">
+        <img src="assets/img/bsh-cover-p3.webp" alt="The redesigned My Karrot, with profile, Karrot Pay and a Services card" loading="lazy">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 24px 28px 28px; flex: 1">
+          <span style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums"><span>Part 3 · 3 months in 2024</span><span class="pgo" aria-hidden="true">↓</span></span>
+          <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">My Karrot and All Services</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">I set the direction, planned and ran the experiments, and took part in every decision from start to finish.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #141414; font-weight: 500; padding-top: 12px; border-top: 1px solid #deded9; margin-top: auto">My Karrot page views +50.4%. Karrot Pay sign-ups +253%.</p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -145,6 +247,12 @@ a:hover{color:#5c5c5c}
     <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
       <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">The problem</h3>
       <p style="margin: 0; color: #3d3d3d">As of 2022, most people saw Karrot, and used it, as a place to trade second-hand goods. The main reason: finding and getting to anything else wasn’t easy. Even when people found another service, they often couldn’t find it again, and gradually dropped off.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid #e6e6e3; max-width: 760px">
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">74%</span><span style="color: #3d3d3d">saw the first tab as a “marketplace”.</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">85%</span><span style="color: #3d3d3d">used Karrot mainly to trade used goods.</span></div>
+      <div class="mx" style="padding-top: 14px; padding-bottom: 14px; border-bottom: 1px solid #e6e6e3; align-items: baseline"><span style="font-size: 28px; line-height: 1.1; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">83%</span><span style="color: #3d3d3d">used only two services, though more than six were available.</span></div>
+      <span style="font-size: 14px; line-height: 1.5; color: #5c5c5c; padding-top: 10px">2022 survey of 1,000 users.</span>
     </div>
     <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
@@ -216,17 +324,22 @@ a:hover{color:#5c5c5c}
       <p style="margin: 0; color: #3d3d3d">Within second-hand trading, let people discover other services naturally and seamlessly. Let them explore through content, not through a hierarchy of services.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
-      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 1. Home.</span> A personalised feed of all kinds of local content, built on second-hand listings, rather than a separate tab for second-hand. People could discover other content they might like between second-hand posts.</p>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 1. Home.</span> A personalised feed of all kinds of local content, built on second-hand listings, rather than a separate tab for second-hand. People could discover other content they might like between second-hand posts. Making that other content feel at home in the feed became Part 2.</p>
     </div>
-    <div class="stage2 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 10% 48px; box-sizing: border-box; gap: 40px 8%; justify-items: center; align-items: start">
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 6% 48px; box-sizing: border-box; gap: 40px 4%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
-        <img src="assets/img/bsh-home-2022.webp" alt="The home feed until 2022: second-hand listings, with a used car ad and a part-time job ad" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 750 / 2506; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">Until 2022.</span> 88% second-hand content, with little personalisation.</p>
+        <img src="assets/img/bsh-home-2022-mix.webp" alt="Example home feed until 2022: second-hand listings from random categories, such as a bag, a mirror, a dog raincoat, a folding bike, a used car ad, a mouse, a kettle and a part-time job" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 2506; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px; text-wrap: pretty"><span style="color: #141414; font-weight: 500">Until 2022.</span> The same mix for everyone: 88% second-hand content from random categories, with little personalisation.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
-        <img src="assets/img/bsh-home-2024.webp" alt="The home feed in 2024: service shortcuts, a Karrot team post, then listings mixed with a used car, a video ad, a meet-up, property and a part-time job" loading="lazy" style="width: 100%; max-width: 260px; aspect-ratio: 750 / 2780; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 260px"><span style="color: #141414; font-weight: 500">In 2024.</span> Service shortcuts at the top, a personalised feed, and 70% second-hand content, mixed with used cars, video ads, meet-ups, property and part-time jobs.</p>
+        <img src="assets/img/bsh-home-2024-persona-a.webp" alt="Example 2024 home feed for persona A, a woman in her mid-20s who has a cat and knits: a hand-knitted cardigan, a cat tower, a knitting club meet-up, a cat bed, a video ad, a cat-sitting job and a knit cardigan" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 2506; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px; text-wrap: pretty"><span style="color: #141414; font-weight: 500">2024, example A.</span> Mid-20s, has a cat, into knitting. Cat gear and knitwear, with a knitting meet-up, a cat-sitting job and a video ad in between.</p>
       </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
+        <img src="assets/img/bsh-home-2024-persona-b.webp" alt="Example 2024 home feed for persona B, a woman in her late 40s into property, plants and local deals: apartments, potted plants, a plant-swap meet-up and coupons from a cafe, a bakery and a grocery store" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 2506; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px; text-wrap: pretty"><span style="color: #141414; font-weight: 500">2024, example B.</span> Late 40s, into property, plants and nearby store deals. Apartments and plants, with coupons from local stores and a plant-swap meet-up.</p>
+      </div>
+      <p style="grid-column: 1 / -1; justify-self: center; margin: 8px 0 0; max-width: 620px; font-size: 14px; line-height: 1.5; color: #5c5c5c; text-align: center; text-wrap: pretty"><span style="color: #141414; font-weight: 500">In 2024,</span> service shortcuts sat at the top and the feed was personalised: 70% second-hand content, mixed with used cars, video ads, meet-ups, property, part-time jobs and local stores. The personas and listings shown are illustrative.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 16px">
       <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Solution 2. Fixed entry points.</span> Give every service a fixed entry point people can always reach, designed so it makes sense in a content-driven app.</p>
@@ -235,13 +348,161 @@ a:hover{color:#5c5c5c}
     <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
       <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Outcome</h3>
       <p style="margin: 0; color: #3d3d3d">The proposals for Home, Search and All Services, the key surfaces for being seen as a local super app, were all built into the product.</p>
-      <p style="margin: 0; color: #3d3d3d">The task force didn’t reach solutions for My Karrot, the notification box or profiles, but I raised them as problems and they stayed on the list. After the task force ended, I took on a dual role and led the reorganisation myself. That’s Part 2.</p>
+      <p style="margin: 0; color: #3d3d3d">The task force didn’t reach solutions for My Karrot, the notification box or profiles, but I raised them as problems and they stayed on the list. After the task force ended, I took on a dual role and led the reorganisation myself. That’s Part 3.</p>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <span style="font-size: 15px; color: #5c5c5c">Part 2 · My Karrot and All Services, 3 months in 2024</span>
+      <span style="font-size: 15px; color: #5c5c5c">Part 2 · Home feed, Feb to Dec 2024</span>
+      <h2 id="feed" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Make other services feel at home in the feed</h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> help people who come to trade second-hand notice, and open, the other services in their feed, without it feeling like ads.</p>
+    </div>
+    <div class="two" style="gap: 20px 40px; padding-top: 4px">
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Key metrics</span><span>Clicks and saves on each kind of content</span><span>Guardrails: home feed ad revenue, and clicks per person</span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 15px; color: #5c5c5c">Team and my part</span><span>I was the home feed’s only designer, working with PMs, engineers and data analysts. I led the problem definition and all of the design, and shared running the experiments.</span></div>
+    </div>
+    <div class="two" style="padding-top: 24px">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #ffffff; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">The problem</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">As Karrot grew, the feed began to carry used cars, property and store products, plus article-style posts like store news, reviews and meet-ups. People read anything that didn’t look like a second-hand listing as an ad, and scrolled past it.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; background: #ffffff; border: 1px solid #e6e6e3; border-radius: 20px">
+        <span style="font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em">What people expected</span>
+        <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">Their picture of a feed item was the second-hand listing: a short product name, the neighbourhood and time, then a price. Anything formatted differently stood out, in the wrong way.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Approach</h3>
+      <p style="margin: 0; color: #3d3d3d">Keep the listing structure people already trust, and fit each service’s information into it. People who came to trade could then find other services on their own, without being pushed. Every change went through an A/B test.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 48px">
+      <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Experiment 1</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Used cars</h3>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Hypothesis.</span> Showing car details the way people scan listings will raise clicks.</p>
+    </div>
+    <div class="fx">
+      <div class="fxcards">
+        <figure class="fxc"><figcaption><b>Control.</b> Make, model and trim in brackets, with “Direct used-car deals” below.</figcaption><img src="assets/img/fx-car-c.webp" alt="Used car card, control: the full trim name in brackets, then Direct used-car deals, then the price" loading="lazy" style="aspect-ratio: 795 / 297"></figure>
+        <figure class="fxc"><figcaption><b>Treatment 1.</b> The full name, with year and mileage below.</figcaption><img src="assets/img/fx-car-t1.webp" alt="Used car card, treatment 1: Kia All New Morning TA 5-Door 1.0 Kappa Luxury, then 2016 and 13k km, then the price" loading="lazy" style="aspect-ratio: 795 / 297"></figure>
+        <figure class="fxc"><figcaption><b>Treatment 2 · Winner.</b> Make and model only, with year and mileage below.</figcaption><img src="assets/img/fx-car-t2.webp" alt="Used car card, treatment 2: Kia All New Morning, then 2016 and 13k km, then the price" loading="lazy" style="aspect-ratio: 795 / 297"></figure>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <table class="tbl">
+          <thead><tr><th>Against control</th><th class="n">Treatment 1</th><th class="n k">Treatment 2</th></tr></thead>
+          <tbody>
+            <tr><td class="rh">Clicks</td><td class="n">−2.2%</td><td class="n k">+23.3%</td></tr>
+            <tr><td class="rh">Saves</td><td class="n">+2.5%</td><td class="n k">+17.9%</td></tr>
+            <tr><td class="rh">Chats started</td><td class="n">−1.1%</td><td class="n k">+13.6%</td></tr>
+            <tr><td class="rh">Listing views</td><td class="n">−0.8%</td><td class="n k">+10.8%</td></tr>
+            <tr><td class="rh">Visits to the used-car home</td><td class="n">+0.6%</td><td class="n k">+18.5%</td></tr>
+            <tr><td class="rh">Home feed ad revenue</td><td class="n">No change</td><td class="n k">No change</td></tr>
+          </tbody>
+        </table>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #e6e6e3; border-radius: 20px"><span style="font-size: 15px; color: #5c5c5c">What we learned</span><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">People scan the feed fast and need to spot the word they care about in a split second. The shortest title won by a wide margin. The most detailed one lost clicks.</p></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 48px">
+      <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Experiment 2</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Property</h3>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Hypothesis.</span> Showing property details the way people scan listings will raise clicks.</p>
+    </div>
+    <div class="fx">
+      <div class="fxcards">
+        <figure class="fxc"><figcaption><b>Control.</b> The seller’s own title, with “Direct real estate deals” below.</figcaption><img src="assets/img/fx-prop-c.webp" alt="Property card, control: Prime location Sinsa Apartment 5-min walk to Seokchon Station, then Direct real estate deals, then the price" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+        <figure class="fxc"><figcaption><b>Treatment 1.</b> Type, rooms, size and floor, split by dividers. Neighbourhood and time below.</figcaption><img src="assets/img/fx-prop-t1.webp" alt="Property card, treatment 1: Sinsa Apartment · 3-bed · 112 m² · 12th floor, then Jamsil 2-dong and 5 min ago, then the price" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+        <figure class="fxc"><figcaption><b>Treatment 2 · Winner.</b> The same details, without dividers.</figcaption><img src="assets/img/fx-prop-t2.webp" alt="Property card, treatment 2: Sinsa Apartment 3-bed 112 m² 12th floor, then Jamsil 2-dong and 5 min ago, then the price" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <table class="tbl">
+          <thead><tr><th>Against control</th><th class="n">Treatment 1</th><th class="n k">Treatment 2</th></tr></thead>
+          <tbody>
+            <tr><td class="rh">Clicks</td><td class="n">−0.9%</td><td class="n k">+5.9%</td></tr>
+            <tr><td class="rh">Saves</td><td class="n">+6.9%</td><td class="n k">+11.8%</td></tr>
+            <tr><td class="rh">Chats started</td><td class="n">−1.1%</td><td class="n k">+1.7%</td></tr>
+            <tr><td class="rh">Listing views</td><td class="n">No change</td><td class="n k">+3.3%</td></tr>
+            <tr><td class="rh">Visits to the property home</td><td class="n">+2.5%</td><td class="n k">+6.7%</td></tr>
+            <tr><td class="rh">Home feed ad revenue</td><td class="n">No change</td><td class="n k">+0.4%</td></tr>
+          </tbody>
+        </table>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #e6e6e3; border-radius: 20px"><span style="font-size: 15px; color: #5c5c5c">What we learned</span><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">A second-hand title is just a product name. Dividers made the title look formatted, and formatted read as commercial, so Treatment 1 lost clicks. The same words without dividers won.</p></div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 48px">
+      <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">Experiment 3</span>
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Store news, in three rounds</h3>
+      <p style="margin: 0; color: #3d3d3d">The feed card was built for products: a short title and a price, opening a product page. Store news is a longer post by a shop owner, and it opens an article. In two lines, people couldn’t tell who posted it, what it was about, or where it led.</p>
+      <p style="margin: 0; color: #3d3d3d"><span style="color: #141414; font-weight: 500">Hypothesis.</span> Making store news read like an article, not a product, will raise conversion.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; padding: 32px; background: #f2f2f0; border-radius: 20px">
+      <div class="snr">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">Control</span><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Title, then the store name and “Store news”.</p></div>
+        <div class="snc">
+          <figure class="fxc"><img src="assets/img/fx-sn-c.webp" alt="Store news card, control: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then PAKEPAKE and Store news" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+        </div>
+      </div>
+      <div class="snr">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">Round 1</span><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Conversion (saves, follows and chats) rose slightly, but clicks and some guardrail metrics fell.</p></div>
+        <div class="snc">
+          <figure class="fxc"><figcaption><b>T1.</b> Store and neighbourhood.</figcaption><img src="assets/img/fx-sn-v1t1.webp" alt="Round 1, treatment 1: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then PAKEPAKE and Songpa-dong" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+          <figure class="fxc"><figcaption><b>T2.</b> Neighbourhood tag and See more.</figcaption><img src="assets/img/fx-sn-v1t2.webp" alt="Round 1, treatment 2: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then PAKEPAKE with a Songpa-dong tag, and a See more link" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+          <figure class="fxc"><figcaption><b>T3.</b> Post text and followers.</figcaption><img src="assets/img/fx-sn-v1t3.webp" alt="Round 1, treatment 3: 16 Jan (Tue) Dessert line-up: Basque cheesecake, the first lines of the post, then PAKEPAKE and Follower 320" loading="lazy" style="aspect-ratio: 793 / 311"></figure>
+        </div>
+      </div>
+      <div class="snr">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">Round 2</span><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Showing the post’s text cut clicks sharply. The follower count cut clicks too, but lifted conversion by over 10%.</p></div>
+        <div class="snc">
+          <figure class="fxc"><figcaption><b>T1.</b> Post text.</figcaption><img src="assets/img/fx-sn-v2t1.webp" alt="Round 2, treatment 1: 16 Jan (Tue) Dessert line-up: Basque cheesecake, the first lines of the post, then PAKEPAKE and Store news" loading="lazy" style="aspect-ratio: 793 / 311"></figure>
+          <figure class="fxc"><figcaption><b>T2.</b> Follower count.</figcaption><img src="assets/img/fx-sn-v2t2.webp" alt="Round 2, treatment 2: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then PAKEPAKE with a Follower 320 tag" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+          <figure class="fxc"><figcaption><b>T3.</b> Post text, no store line.</figcaption><img src="assets/img/fx-sn-v2t3.webp" alt="Round 2, treatment 3: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then the first lines of the post" loading="lazy" style="aspect-ratio: 793 / 311"></figure>
+        </div>
+      </div>
+      <div class="snr">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 600">Round 3 · Rolled out</span><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d">Neighbourhood first, the way listings show it. T1 kept impressions and clicks flat, lifted conversion about 7%, and cut ad misclicks (people leaving within 5 seconds) by 1%.</p></div>
+        <div class="snc">
+          <figure class="fxc"><figcaption><b>T1 · Winner.</b> Neighbourhood, store and followers.</figcaption><img src="assets/img/fx-sn-v3t1.webp" alt="Round 3, treatment 1: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then Songpa-dong, PAKEPAKE and Follower 320" loading="lazy" style="aspect-ratio: 793 / 314"></figure>
+          <figure class="fxc"><figcaption><b>T2.</b> Neighbourhood and store.</figcaption><img src="assets/img/fx-sn-v3t2.webp" alt="Round 3, treatment 2: 16 Jan (Tue) Dessert line-up: Basque cheesecake, then Songpa-dong and PAKEPAKE" loading="lazy" style="aspect-ratio: 793 / 296"></figure>
+        </div>
+      </div>
+      <span style="font-size: 14px; line-height: 1.5; color: #5c5c5c; padding-top: 4px">Blue outlines mark what changed in each version.</span>
+    </div>
+    <div style="max-width: 760px">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #e6e6e3; border-radius: 20px"><span style="font-size: 15px; color: #5c5c5c">What we learned</span><p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3d3d3d">In research, people decided whether something was an ad by who posted it, so posts by shop owners looked promotional even when they weren’t. The answer was balance: enough to show what the post is, not so much that it reads like an ad.</p></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 56px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Results</h3>
+      <p style="margin: 0; color: #3d3d3d">Each number is the lift over that test’s control group, which kept the original card.</p>
+    </div>
+    <div class="results4">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+23.3%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">vs control · saves +17.9%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">clicks on used cars in the home feed.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+18.5%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">vs control, same test</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">visits to the used-car service home.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+6.7%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">vs control · clicks +5.9%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">visits to the property service home. Saves +11.8%.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+7%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">vs control · ad misclicks −1%</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">conversion on store news, with impressions and clicks flat.</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">None of these tests added a new entry point. Each one made a service’s content easier to read in the feed, and more people went on into that service.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">Part 3 · My Karrot and All Services, 3 months in 2024</span>
       <h2 id="mk" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Make My Karrot the way into every service</h2>
       <p style="margin: 0; font-size: 19px; line-height: 1.45; color: #141414; letter-spacing: -0.01em"><span style="color: #5c5c5c">Goal:</span> help people learn fixed entry points to every service, and visit My Karrot to reach them. Reorganise the menus across all services.</p>
     </div>
@@ -349,7 +610,7 @@ a:hover{color:#5c5c5c}
     </div>
     <div class="flow stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; row-gap: 20px">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0; width: 100%">
-        <img src="assets/img/bsh-home-2024-top.webp" alt="Home in 2024, with a menu icon at the top and shortcuts to part-time jobs, used cars and property" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <img src="assets/img/bsh-home-2024-top-v2.webp" alt="Home in 2024, with a menu icon at the top and shortcuts to part-time jobs, used cars and property, then a Karrot team post and listings" loading="lazy" style="width: 100%; max-width: 240px; aspect-ratio: 750 / 1624; object-fit: cover; object-position: top; display: block; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
         <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c; width: 100%; max-width: 240px"><span style="color: #141414; font-weight: 500">Home.</span> The menu icon opens All Services.</p>
       </div>
 <div class="arr" aria-hidden="true"><svg width="28" height="14" viewBox="0 0 28 14"><line x1="1" y1="7" x2="25" y2="7" stroke="#8a8a86" stroke-width="1.5"></line><path d="M19 2 L26 7 L19 12" fill="none" stroke="#8a8a86" stroke-width="1.5"></path></svg></div>
@@ -411,25 +672,102 @@ a:hover{color:#5c5c5c}
     </div>
   </section>
 
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">Outcome · 2023 to 2025</span>
+      <h2 id="outcome" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Did people’s view of Karrot change?</h2>
+      <p style="margin: 0; color: #3d3d3d">Karrot tracked this with user surveys, run yearly inside the home feed since 2024, alongside the feed’s own metrics. These are company-wide numbers, shaped by many teams, including the ML work that personalised the feed. They’re the outcome my work fed into, not mine alone.</p>
+    </div>
+    <div class="two">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 600">People who used Karrot only to trade second-hand</span><span style="font-size: 14px; color: #5c5c5c">Karrot user surveys</span></div>
+        <div class="bars">
+          <div class="bar"><span style="color: #3d3d3d">Feb 2023</span><div class="tr"><div class="fi" style="width: 85%"></div></div><span class="v">85%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">Feb 2024</span><div class="tr"><div class="fi" style="width: 50%"></div></div><span class="v">50%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">Mar 2025</span><div class="tr"><div class="fi on" style="width: 24%"></div></div><span class="v">24%</span></div>
+        </div>
+        <p style="margin: 0; margin-top: auto; font-size: 15px; line-height: 1.5; color: #3d3d3d; padding-top: 12px; border-top: 1px solid #deded9">In two years, the share of people who came only to trade fell by more than two-thirds.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 28px; background: #f2f2f0; border-radius: 20px">
+        <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 600">Why people browse the home feed</span><span style="font-size: 14px; color: #5c5c5c">Feb 2025 survey of 6,024 people, more than one answer allowed</span></div>
+        <div class="bars">
+          <div class="bar"><span style="color: #3d3d3d">To trade used items</span><div class="tr"><div class="fi" style="width: 91%"></div></div><span class="v">91%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">Out of habit or boredom</span><div class="tr"><div class="fi" style="width: 53.5%"></div></div><span class="v">53.5%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">To find local jobs or property</span><div class="tr"><div class="fi on" style="width: 38.3%"></div></div><span class="v">38.3%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">To find local shop info</span><div class="tr"><div class="fi on" style="width: 15.6%"></div></div><span class="v">15.6%</span></div>
+          <div class="bar"><span style="color: #3d3d3d">To check neighbours’ updates</span><div class="tr"><div class="fi on" style="width: 11.8%"></div></div><span class="v">11.8%</span></div>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #3d3d3d; padding-top: 12px; border-top: 1px solid #deded9"><span style="color: #141414; font-weight: 500">73.5% satisfied</span> with the home feed, 21.9% neutral, 4.6% dissatisfied.</p>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; padding-top: 24px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">The home feed in 2024</h3>
+    </div>
+    <div class="results">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">59.1%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">from 38% in Jan 2024</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">click rate on content other than second-hand, Dec 2024.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+23.3%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">4.16M → 5.13M, Jan to Dec 2024</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">daily active viewers of the home feed.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 24px; border-top: 1px solid #e6e6e3">
+        <span style="font-size: 44px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums">+56.1%</span>
+        <span style="font-size: 15px; line-height: 1.4; color: #141414; font-variant-numeric: tabular-nums">1.46M → 2.28M, Jan to Dec 2024</span>
+        <span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">conversions through the home feed.</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
+      <p style="margin: 0; color: #3d3d3d">Trading is still why most people open Karrot. But far fewer come only for that, more of the feed’s clicks go to other services, and satisfaction stayed high as the feed mixed them in.</p>
+    </div>
+  </section>
+
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px; padding-bottom: 152px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
+      <h2 id="learned" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What I learned</h2>
     </div>
     <div class="learn">
       <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">People find services inside content.</span><p style="margin: 0; color: #3d3d3d">Testing showed people didn’t notice a new tab structure. They reached services through entry points and search in the content in front of them.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">In a fast feed, less wins.</span><p style="margin: 0; color: #3d3d3d">People scan for one word in a split second. The shortest used-car title won 23.3% more clicks, and the most detailed one lost clicks.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">People judge an ad by who posted it.</span><p style="margin: 0; color: #3d3d3d">Store news looked promotional even when it wasn’t. Putting the neighbourhood first, the way listings do, lifted conversion 7% and cut ad misclicks.</p></div>
       <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">A name people rely on is worth protecting.</span><p style="margin: 0; color: #3d3d3d">Renaming My Karrot cost 6% of its page views in two weeks. The guardrail in the second test let us keep the gains without that cost.</p></div>
       <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Organise around people, not the org chart.</span><p style="margin: 0; color: #3d3d3d">Regrouping menus by what people do, rather than which team owns them, is what made the services easy to find.</p></div>
-      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Raise the problem, even without the answer yet.</span><p style="margin: 0; color: #3d3d3d">My Karrot was left open when the task force ended. Keeping it on the list is what made Part 2 possible.</p></div>
+      <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 17px; font-weight: 600">Raise the problem, even without the answer yet.</span><p style="margin: 0; color: #3d3d3d">My Karrot was left open when the task force ended. Keeping it on the list is what made Part 3 possible.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="more-work" style="padding-top: 56px; padding-bottom: 120px; border-top: 1px solid #e6e6e3; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
+      <h2 id="more-work" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">More work</h2>
+      <a href="index.html#work" style="text-decoration: none; font-size: 15px">All work</a>
+    </div>
+    <div class="nx-grid">
+      <a class="nx-card" href="karrot-map.html">
+        <span class="nx-title">Karrot Map: 61K → 218K Daily Users</span>
+        <span class="nx-shot"><img src="assets/img/km-ux-store.webp" alt="" width="780" height="1688" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="seed-design-system.html">
+        <span class="nx-title">SEED Design System: From Scratch to 90%+ Adoption</span>
+        <span class="nx-shot"><img src="assets/img/ds-buttons-panel.webp" alt="" width="984" height="1124" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="feed-item-card.html">
+        <span class="nx-title">Feed Card System: From 3 Weeks to 3 Days</span>
+        <span class="nx-shot"><img src="assets/img/bsh-home-2024-top-v2.webp" alt="" width="750" height="1624" loading="lazy"></span>
+      </a>
     </div>
   </section>
 
   <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
-    <a href="karrot-map.html" style="text-decoration: none">Next: Karrot Map →</a>
+    <span style="font-weight: 600">Jihyun Kim</span>
     <div style="display: flex; gap: 28px; flex-wrap: wrap">
       <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
       <a href="https://www.linkedin.com/in/journy/" target="_blank" rel="noopener" style="text-decoration: none">LinkedIn</a>
     </div>
   </footer>
 </div>
+<script>(function(){var l=[].slice.call(document.querySelectorAll(".toc [data-toc]"));if(!l.length)return;var ids=[];l.forEach(function(a){var i=a.getAttribute("data-toc");if(ids.indexOf(i)<0)ids.push(i)});function u(){var c=ids[0];ids.forEach(function(i){var e=document.getElementById(i);if(e&&e.getBoundingClientRect().top<=160)c=i});l.forEach(function(a){a.classList.toggle("is-active",a.getAttribute("data-toc")===c)})}window.addEventListener("scroll",u,{passive:true});u()})();</script>
 </body>
 </html>

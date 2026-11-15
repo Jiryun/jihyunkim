@@ -17,6 +17,7 @@ a:hover{color:#5c5c5c}
 .wrap{max-width:1120px;margin-left:auto;margin-right:auto;padding-left:40px;padding-right:40px;box-sizing:content-box}
 .meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.results4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
 .stage3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .stage4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 48px}
@@ -28,6 +29,7 @@ a:hover{color:#5c5c5c}
 .wrap{padding-left:20px;padding-right:20px}
 .meta{grid-template-columns:repeat(2,minmax(0,1fr))}
 .results{grid-template-columns:minmax(0,1fr)}
+.results4{grid-template-columns:minmax(0,1fr);gap:28px}
 .two{grid-template-columns:minmax(0,1fr)}
 .stage4{grid-template-columns:repeat(2,minmax(0,1fr))}
 .row{grid-template-columns:minmax(0,1fr)}
@@ -41,31 +43,94 @@ a:hover{color:#5c5c5c}
 .title-h{font-size:40px !important}
 .stage-pad{padding:28px 5% !important}
 }
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+h1[id],h2[id]{scroll-margin-top:132px}
+.toc{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:50}
+.toc-rail{display:flex;flex-direction:column;align-items:flex-end;gap:10px;padding:14px 6px}
+.toc-dash{display:block;width:12px;height:2px;border-radius:2px;background:#d2d2cd;transition:width .2s ease,background-color .2s ease}
+.toc-dash.is-active{width:20px;background:#141414}
+.toc:hover .toc-dash{background:#bdbdb7}
+.toc:hover .toc-dash.is-active{background:#141414}
+.toc-panel{position:absolute;right:0;top:50%;width:248px;max-height:min(70vh,560px);overflow-y:auto;box-sizing:border-box;padding:8px;display:flex;flex-direction:column;gap:2px;background:#ffffff;border:1px solid #e6e6e3;border-radius:14px;box-shadow:0 1px 2px rgba(0,0,0,0.04),0 12px 32px rgba(0,0,0,0.10);opacity:0;pointer-events:none;transform:translate(8px,-50%);transition:opacity .18s ease,transform .18s ease}
+.toc:hover .toc-panel,.toc:focus-within .toc-panel{opacity:1;pointer-events:auto;transform:translate(0,-50%)}
+.toc-title{padding:6px 10px 8px;font-size:12px;line-height:1.3;letter-spacing:0.02em;color:#8f8f8a}
+.toc-link{display:block;padding:7px 10px;border-radius:8px;font-size:14px;line-height:1.35;color:#5c5c5c;text-decoration:none}
+.toc-link:hover{background:#f2f2f0;color:#141414}
+.toc-link:focus-visible{outline:2px solid #141414;outline-offset:-2px}
+.toc-link.is-active{color:#141414;font-weight:500}
+@media (max-width:1199px){.toc{display:none}}
+.topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(20,20,20,0.06)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.topbar{background:#ffffff}}
+.nx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.nx-card{display:flex;flex-direction:column;aspect-ratio:11 / 12;background:#f2f2f0;border-radius:24px;overflow:hidden;text-decoration:none;color:#141414;transition:background-color .2s ease}
+.nx-card:hover{background:#ebebe8;color:#141414}
+.nx-card:focus-visible{outline:2px solid #141414;outline-offset:3px}
+.nx-title{display:block;padding:32px 32px 0;font-size:24px;line-height:1.25;font-weight:500;letter-spacing:-0.02em;text-wrap:balance}
+.nx-shot{display:block;flex:1;min-height:0;padding:28px 32px 0}
+.nx-shot img{display:block;width:100%;height:auto;border-radius:28px 28px 0 0;border:1px solid rgba(0,0,0,0.06);border-bottom:0;box-shadow:0 1px 2px rgba(0,0,0,0.05),0 16px 40px rgba(0,0,0,0.08);background:#ffffff;transition:transform .3s ease}
+.nx-card:hover .nx-shot img{transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.nx-shot img{transition:none}.nx-card:hover .nx-shot img{transform:none}}
+@media (max-width:1023px){.nx-title{font-size:21px;padding:24px 24px 0}.nx-shot{padding:22px 24px 0}}
+@media (max-width:860px){.nx-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-20px;margin-right:-20px;padding:0 20px 8px;scroll-padding-left:20px;scrollbar-width:none}.nx-grid::-webkit-scrollbar{display:none}.nx-card{scroll-snap-align:start}}
 </style>
 </head>
 <body>
 <div style="font-family: 'Instrument Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #141414; background: #ffffff; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased">
 
-  <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 32px; padding-bottom: 32px; font-size: 15px">
-    <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
-    <nav aria-label="Main" style="display: flex; gap: 28px">
-      <a href="index.html#work" style="text-decoration: none">Work</a>
-      <a href="index.html#about" style="text-decoration: none">About</a>
-      <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">Email</a>
-    </nav>
-  </header>
+  <nav class="toc" aria-label="On this page">
+    <div class="toc-rail" aria-hidden="true">
+      <span class="toc-dash" data-toc="overview"></span>
+      <span class="toc-dash" data-toc="context"></span>
+      <span class="toc-dash" data-toc="problem"></span>
+      <span class="toc-dash" data-toc="goal"></span>
+      <span class="toc-dash" data-toc="how-i-worked"></span>
+      <span class="toc-dash" data-toc="approach"></span>
+      <span class="toc-dash" data-toc="key-decisions"></span>
+      <span class="toc-dash" data-toc="solution"></span>
+      <span class="toc-dash" data-toc="package-size"></span>
+      <span class="toc-dash" data-toc="results"></span>
+      <span class="toc-dash" data-toc="iteration"></span>
+      <span class="toc-dash" data-toc="whats-next"></span>
+    </div>
+    <div class="toc-panel">
+      <span class="toc-title">On this page</span>
+      <a class="toc-link" data-toc="overview" href="#overview">Overview</a>
+      <a class="toc-link" data-toc="context" href="#context">Context</a>
+      <a class="toc-link" data-toc="problem" href="#problem">Problem</a>
+      <a class="toc-link" data-toc="goal" href="#goal">Goal</a>
+      <a class="toc-link" data-toc="how-i-worked" href="#how-i-worked">How I worked</a>
+      <a class="toc-link" data-toc="approach" href="#approach">Approach</a>
+      <a class="toc-link" data-toc="key-decisions" href="#key-decisions">Key decisions</a>
+      <a class="toc-link" data-toc="solution" href="#solution">Solution</a>
+      <a class="toc-link" data-toc="package-size" href="#package-size">Package size</a>
+      <a class="toc-link" data-toc="results" href="#results">Results</a>
+      <a class="toc-link" data-toc="iteration" href="#iteration">Iteration</a>
+      <a class="toc-link" data-toc="whats-next" href="#whats-next">What’s next</a>
+    </div>
+  </nav>
+
+  <div class="topbar">
+    <header class="wrap" style="display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 18px; padding-bottom: 18px; font-size: 15px">
+      <a href="index.html" style="text-decoration: none; font-weight: 600; letter-spacing: -0.01em">Jihyun Kim</a>
+      <nav aria-label="Main" style="display: flex; gap: 28px">
+        <a href="index.html#work" style="text-decoration: none">Work</a>
+        <a href="index.html#path" style="text-decoration: none">About</a>
+      </nav>
+    </header>
+  </div>
 
   <section class="wrap" style="padding-top: 72px; padding-bottom: 56px; display: flex; flex-direction: column; gap: 20px">
     <a href="index.html#work" style="text-decoration: none; font-size: 15px; color: #5c5c5c">← All work</a>
     <div style="display: flex; flex-direction: column; gap: 12px">
       <span style="font-size: 17px; line-height: 1.4; font-weight: 500; color: #5c5c5c">Buy now</span>
-      <h1 class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Selling Nationwide</h1>
+      <h1 id="overview" class="title-h" style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em">Buy now: Selling Nationwide</h1>
     </div>
-    <p style="margin: 0; max-width: 720px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Could payment and shipping become a new growth lever for Karrot in Canada? We built the first version to find out, from kickoff to launch in six weeks.</p>
+    <p style="margin: 0; max-width: 720px; font-size: 22px; line-height: 1.45; color: #5c5c5c; letter-spacing: -0.01em">Could payment and shipping become a new growth lever for Karrot in Canada? As the team’s only designer, I took Buy now from policy to screens in six weeks, then reworked it around what real orders showed.</p>
     <div class="meta" style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e6e6e3; font-size: 15px; line-height: 1.5">
       <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Goal</span><span>Find new growth for Karrot in Canada</span></div>
       <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Team</span><span>The CEO, a backend engineer and me</span></div>
-      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">My role</span><span>Approach, policy and specification, UX and UI</span></div>
+      <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">My role</span><span>Sole designer: approach, policy, specification, UX and UI</span></div>
       <div style="display: flex; flex-direction: column; gap: 4px"><span style="color: #5c5c5c">Timeline</span><span>6 weeks, kickoff to launch. Live across Canada since Sep 16, 2026</span></div>
     </div>
   </section>
@@ -80,20 +145,20 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 120px; display: flex; flex-direction: column; gap: 64px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The question</h2>
-      <p style="margin: 0; color: #3d3d3d">Karrot in Canada was a meetup-only marketplace. Only 7% of monthly users traded, about 70% of trades were under $50, and every trade was limited to how far people would travel to meet. Facebook Marketplace led on both buyers and sellers, and scams asking for an e-Transfer up front were common.</p>
-      <p style="margin: 0; color: #3d3d3d">Shipping had already worked for Karrot elsewhere. In Korea, Karrot added Buy now with payment and parcel delivery in September 2025. By February 2026, completed Buy now trades had grown about 90 times, and in the first half of 2026, Karrot’s brokerage and payment revenue, which includes Buy now, was 19.4 times higher than a year earlier. In the US, Vinted showed the demand for shipped second-hand goods: its monthly app downloads rose from 288,000 in January 2026 to 2.9 million in August.</p>
-      <p style="margin: 0; color: #3d3d3d">Canada had no one doing this yet. Facebook Marketplace offers checkout with shipping only in the US, and no major peer-to-peer app in Canada had shipping and payment built in. Before Buy now existed, 26,440 Karrot chats in Canada were already working out delivery on their own.</p>
+      <h2 id="context" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Context</h2>
+      <p style="margin: 0; color: #3d3d3d">Karrot in Canada was a meetup-only marketplace. Only 7% of monthly users traded, about 70% of trades were under $50, and every trade was limited to how far people would travel to meet.</p>
+      <p style="margin: 0; color: #3d3d3d">Shipping had already worked for Karrot in Korea, where completed Buy now trades grew about 90 times between September 2025 and February 2026. In Canada, no major peer-to-peer app had shipping and payment built in, yet 26,440 Karrot chats were already working out delivery on their own.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Delivery, not speed</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Problem</span>
+      <h2 id="problem" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Delivery, not speed</h2>
       <p style="margin: 0; color: #3d3d3d">The working title, Instant Buy, described a faster checkout. I reframed it. In an app that had only ever worked face to face, the real change was that an item could travel at all. That made Buy now a bet on supply, not a checkout feature.</p>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The bet</h2>
+      <h2 id="goal" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Goal</h2>
       <p style="margin: 0; color: #3d3d3d">I wrote the MVP PRD around one test: grow listings that can ship, and see whether trades grow with them.</p>
     </div>
     <div style="display: flex; flex-direction: column">
@@ -122,8 +187,8 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Six weeks</h2>
-      <p style="margin: 0; color: #3d3d3d">From kickoff to launch, the weeks went to finishing the flows and testing with real parcels.</p>
+      <h2 id="how-i-worked" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">How I worked</h2>
+      <p style="margin: 0; color: #3d3d3d">The team was the CEO, a backend engineer and me, with no PM or data analyst. I used Claude to cover much of that ground, before launch and after it. I set the questions and made the calls.</p>
     </div>
     <div class="tl">
       <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid #e6e6e3">
@@ -151,7 +216,8 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The journey before the screens</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Approach</span>
+      <h2 id="approach" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The journey before the screens</h2>
       <p style="margin: 0; color: #3d3d3d">Before designing screens, I mapped one order from end to end for both sides: what each person does, where the money sits, and which rule applies at each step.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px; padding-top: 24px">
@@ -199,55 +265,12 @@ a:hover{color:#5c5c5c}
 <div style="position: absolute; left: 964px; top: 185px; width: 72px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">e‑Transfer</div>
 </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px; padding-top: 24px">
-      <h3 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">When something goes wrong</h3>
-      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Each exception has a set time limit and a clear outcome. Problems go to the seller first, and Karrot steps in only when the two can’t agree.</p>
-    </div>
-    <p class="m-only" style="display: none; margin: 0; font-size: 14px; color: #5c5c5c">Swipe sideways to see the whole diagram.</p>
-    <div class="dg dg-pad" style="background: #f2f2f0; border-radius: 20px; padding: 40px; box-sizing: border-box; overflow-x: auto; display: flex">
-<div style="position: relative; flex: none; width: 1040px; height: 548px">
-<svg width="63" height="8" viewBox="0 0 63 8" preserveAspectRatio="none" style="position: absolute; left: 184px; top: 80px; width: 63px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-5" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 59 4" marker-end="url(#dc-arrow-head-filled-5)"></path></svg>
-<svg width="79" height="8" viewBox="0 0 79 8" preserveAspectRatio="none" style="position: absolute; left: 448px; top: 80px; width: 79px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-6" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 75 4" marker-end="url(#dc-arrow-head-filled-6)"></path></svg>
-<svg width="63" height="8" viewBox="0 0 63 8" preserveAspectRatio="none" style="position: absolute; left: 728px; top: 80px; width: 63px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-7" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 59 4" marker-end="url(#dc-arrow-head-filled-7)"></path></svg>
-<svg width="8" height="47" viewBox="0 0 8 47" preserveAspectRatio="none" style="position: absolute; left: 344px; top: 128px; width: 8px; height: 47px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-8" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 43" marker-end="url(#dc-arrow-head-filled-8)"></path></svg>
-<svg width="63" height="8" viewBox="0 0 63 8" preserveAspectRatio="none" style="position: absolute; left: 184px; top: 384px; width: 63px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-9" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 59 4" marker-end="url(#dc-arrow-head-filled-9)"></path></svg>
-<svg width="79" height="8" viewBox="0 0 79 8" preserveAspectRatio="none" style="position: absolute; left: 448px; top: 384px; width: 79px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-10" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 75 4" marker-end="url(#dc-arrow-head-filled-10)"></path></svg>
-<svg width="8" height="51" viewBox="0 0 8 51" preserveAspectRatio="none" style="position: absolute; left: 344px; top: 432px; width: 8px; height: 51px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-11" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 47" marker-end="url(#dc-arrow-head-filled-11)"></path></svg>
-<svg width="8" height="51" viewBox="0 0 8 51" preserveAspectRatio="none" style="position: absolute; left: 624px; top: 432px; width: 8px; height: 51px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-12" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 4 0 L 4 47" marker-end="url(#dc-arrow-head-filled-12)"></path></svg>
-<svg width="32" height="8" viewBox="0 0 32 8" preserveAspectRatio="none" style="position: absolute; left: 728px; top: 384px; width: 32px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><path d="M 0 4 L 32 4"></path></svg>
-<svg width="8" height="160" viewBox="0 0 8 160" preserveAspectRatio="none" style="position: absolute; left: 756px; top: 308px; width: 8px; height: 160px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><path d="M 4 0 L 4 160"></path></svg>
-<svg width="31" height="8" viewBox="0 0 31 8" preserveAspectRatio="none" style="position: absolute; left: 760px; top: 304px; width: 31px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-13" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 27 4" marker-end="url(#dc-arrow-head-filled-13)"></path></svg>
-<svg width="31" height="8" viewBox="0 0 31 8" preserveAspectRatio="none" style="position: absolute; left: 760px; top: 384px; width: 31px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-14" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 27 4" marker-end="url(#dc-arrow-head-filled-14)"></path></svg>
-<svg width="31" height="8" viewBox="0 0 31 8" preserveAspectRatio="none" style="position: absolute; left: 760px; top: 464px; width: 31px; height: 8px; overflow: visible; fill: none; stroke: #9a9a95; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><defs><marker id="dc-arrow-head-filled-15" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#9a9a95" stroke="none" style="stroke: none; fill: #9a9a95; fill: context-stroke"></path></marker></defs><path d="M 0 4 L 27 4" marker-end="url(#dc-arrow-head-filled-15)"></path></svg>
-<div style="position: absolute; left: 0px; top: 40px; width: 184px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Order paid</b><br><span style="color: #5c5c5c">The seller has 5 days to ship</span></span></div>
-<div style="position: absolute; left: 248px; top: 40px; width: 200px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #141414; border: 1px solid #141414; color: #ffffff"><span><b style="font-weight: 600">Shipped within 5 days?</b><br><span style="color: #c9c9c4">Reminders every 24 hours</span></span></div>
-<div style="position: absolute; left: 528px; top: 40px; width: 200px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">The order cancels</b><br><span style="color: #5c5c5c">On its own, no request needed</span></span></div>
-<div style="position: absolute; left: 792px; top: 40px; width: 248px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Buyer refunded in full</b><br><span style="color: #5c5c5c">Automatically</span></span></div>
-<div style="position: absolute; left: 248px; top: 176px; width: 200px; height: 56px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414; justify-content: center; text-align: center"><span><b style="font-weight: 600">Ships, and tracking starts</b></span></div>
-<div style="position: absolute; left: 0px; top: 344px; width: 184px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Item delivered</b><br><span style="color: #5c5c5c">The buyer has 48 hours to check it</span></span></div>
-<div style="position: absolute; left: 248px; top: 344px; width: 200px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #141414; border: 1px solid #141414; color: #ffffff"><span><b style="font-weight: 600">Problem reported?</b><br><span style="color: #c9c9c4">Not received, damaged, or not as described</span></span></div>
-<div style="position: absolute; left: 528px; top: 344px; width: 200px; height: 88px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #141414; border: 1px solid #141414; color: #ffffff"><span><b style="font-weight: 600">Seller replies in 48 hours?</b><br><span style="color: #c9c9c4">The payout is on hold</span></span></div>
-<div style="position: absolute; left: 248px; top: 484px; width: 200px; height: 56px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414; justify-content: center; text-align: center"><span><b style="font-weight: 600">Payout released to the seller</b></span></div>
-<div style="position: absolute; left: 528px; top: 484px; width: 200px; height: 56px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414; justify-content: center; text-align: center"><span><b style="font-weight: 600">Buyer refunded automatically</b></span></div>
-<div style="position: absolute; left: 792px; top: 276px; width: 248px; height: 64px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Partial refund</b><br><span style="color: #5c5c5c">Offered to the buyer</span></span></div>
-<div style="position: absolute; left: 792px; top: 356px; width: 248px; height: 64px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Full refund</b><br><span style="color: #5c5c5c">With or without the item back</span></span></div>
-<div style="position: absolute; left: 792px; top: 436px; width: 248px; height: 64px; box-sizing: border-box; padding: 12px 14px; display: flex; align-items: center; font-size: 14px; line-height: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #dcdcd7; color: #141414"><span><b style="font-weight: 600">Dispute</b><br><span style="color: #5c5c5c">Karrot reviews and decides</span></span></div>
-<div style="position: absolute; left: 0px; top: 0px; font-size: 15px; line-height: 24px; font-weight: 500; color: #141414">If the seller doesn’t ship</div>
-<div style="position: absolute; left: 0px; top: 288px; font-size: 15px; line-height: 24px; font-weight: 500; color: #141414">If something is wrong with the item</div>
-<div style="position: absolute; left: 474px; top: 56px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">no</div>
-<div style="position: absolute; left: 360px; top: 144px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">yes</div>
-<div style="position: absolute; left: 474px; top: 360px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">yes</div>
-<div style="position: absolute; left: 360px; top: 450px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">no</div>
-<div style="position: absolute; left: 640px; top: 450px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">no</div>
-<div style="position: absolute; left: 730px; top: 360px; width: 28px; text-align: center; font-size: 13px; line-height: 16px; color: #5c5c5c">yes</div>
-</div>
-    </div>
   </section>
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">How we decided</h2>
-      <p style="margin: 0; color: #3d3d3d">Every v1 choice had to fit four real-world limits: our partners, the business bet, cost and the law. Inside them, we looked for moments that make shipping feel easy. The pattern: take the option that ships fastest and keeps the money safe, and move risky or costly parts to later.</p>
+      <h2 id="key-decisions" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Key decisions</h2>
+      <p style="margin: 0; color: #3d3d3d">Every v1 choice had to fit four real-world limits: our partners, the business bet, cost and the law. The pattern: take the option that ships fastest and keeps the money safe, and move risky or costly parts to later.</p>
     </div>
     <div style="display: flex; flex-direction: column">
       <div class="row" style="padding-top: 28px; padding-bottom: 28px; border-top: 1px solid #e6e6e3">
@@ -260,87 +283,46 @@ a:hover{color:#5c5c5c}
       <div class="row" style="padding-top: 28px; padding-bottom: 28px; border-top: 1px solid #e6e6e3">
         <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 8px"><span style="font-weight: 500">Business</span><span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">The bet was supply, so every choice had to make sellers more likely to turn shipping on.</span></div>
         <div style="display: flex; flex-direction: column; gap: 14px">
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Shipping adds to meetups.</span> Sellers choose Sell nationwide, which keeps meetups open. Listings say Shipping available, not Shipping only, and we never speak negatively about meeting up.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Shipping adds to meetups.</span> Sellers choose Sell nationwide, which keeps meetups open. Listings say Shipping available, not Shipping only.</p>
           <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">No extra seller fees.</span> Buyers pay shipping and a Buyer Protection Fee. Sellers pay nothing extra.</p>
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">All of Canada.</span> We launched everywhere at once, rather than Toronto or Ontario first. The US stayed out of v1.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">All of Canada.</span> We launched everywhere at once, rather than Toronto or Ontario first.</p>
         </div>
       </div>
       <div class="row" style="padding-top: 28px; padding-bottom: 28px; border-top: 1px solid #e6e6e3">
         <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 8px"><span style="font-weight: 500">Cost</span><span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">Shipping, fees and payouts all had a price.</span></div>
         <div style="display: flex; flex-direction: column; gap: 14px">
           <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">A $10 floor.</span> Below $10, shipping and fees cost more than the item.</p>
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Drop-off only.</span> Carrier pickup cost $3 or more per order and was hard to bill to the buyer.</p>
           <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Size before weight.</span> Weight options start at 5 kg, because picking a size is easier than weighing. The cost is at most $1.59 undercharged on an order.</p>
         </div>
       </div>
       <div class="row" style="padding-top: 28px; padding-bottom: 28px; border-top: 1px solid #e6e6e3">
         <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 8px"><span style="font-weight: 500">Legal and risk</span><span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">Money between strangers brings fraud, chargebacks and consumer law.</span></div>
         <div style="display: flex; flex-direction: column; gap: 14px">
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Fees up front.</span> Canada’s Competition Act bars mandatory fees that first appear at checkout. The Buyer Protection Fee is named on the listing, and we chose to explain it as clearly as we could, beyond the legal minimum.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Fees up front.</span> Canada’s Competition Act bars mandatory fees that first appear at checkout, so the Buyer Protection Fee is named on the listing.</p>
           <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">A $1,000 cap.</span> Above it, fraud and chargeback losses grow. It also matches Vinted’s Buyer Protection limit.</p>
           <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Interac payouts.</span> Bank transfers can be reversed for up to 90 days, so sellers are paid by Interac e-Transfer, with Karrot covering the fee.</p>
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">What can ship.</span> We blocked only what Canada Post prohibits, plus helmets, instead of whole categories, so electronics, fragile items and baby gear could ship. I set the details: helmets as the only blocked protective gear, and pet food allowed for every species.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">What can ship.</span> We blocked only what Canada Post prohibits, plus helmets, instead of whole categories, so electronics, fragile items and baby gear could ship.</p>
         </div>
       </div>
       <div class="row" style="padding-top: 28px; padding-bottom: 28px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3">
-        <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 8px"><span style="font-weight: 500">Moments that feel easy</span><span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">Inside those limits, we looked for the moments that make shipping feel effortless.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding-right: 8px"><span style="font-weight: 500">Left for later</span><span style="font-size: 15px; line-height: 1.5; color: #5c5c5c">Each waited for a cost, a risk, or because it didn’t help answer the question.</span></div>
         <div style="display: flex; flex-direction: column; gap: 14px">
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">One tap to buy.</span> Buy now goes straight to an itemized checkout, with no back and forth in chat.</p>
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Protection without asking.</span> Buyers have 48 hours after delivery to report a problem, and if the seller doesn’t reply in time, the refund is automatic.</p>
-          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Paid without chasing.</span> Sellers are paid 48 hours after delivery, or as soon as the buyer confirms.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">What waited.</span> Buy now in search and the home feed, buying inside a chat, carrier pickup at $3 or more per order, several items in one order, a brand for buyer protection, and the US, marketing and subsidies.</p>
+          <p style="margin: 0; font-size: 16px; color: #3d3d3d"><span style="font-weight: 500; color: #141414">Two came back after launch.</span> A Buy now button in chat once a seller accepts an offer, and bundles, which I started designing in October.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 40px">
-    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What we left for later</h2>
-      <p style="margin: 0; color: #3d3d3d">Each of these would have made Buy now better for someone. Each waited for a reason: a cost, a risk, or because it didn’t help answer the question.</p>
-    </div>
-    <div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.55">
-      <div class="later later-head" style="padding-bottom: 10px; font-size: 15px; color: #5c5c5c"><span>What waited</span><span>What it would give people</span><span>What held it back</span></div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Buy now in search and the home feed</span>
-        <span style="color: #3d3d3d">Finding shippable items while browsing</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Business.</span> One entry point first, to keep the flow and the protection rules simple. Phase 2.</span>
-      </div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Buying inside a chat</span>
-        <span style="color: #3d3d3d">Buying the moment a deal is agreed</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Business.</span> The same single entry point. After launch, a Buy now button came to chat when a seller accepts an offer.</span>
-      </div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Carrier pickup</span>
-        <span style="color: #3d3d3d">No trip to the post office</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Cost.</span> $3 or more per order, and hard to bill to the buyer.</span>
-      </div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Several items in one order</span>
-        <span style="color: #3d3d3d">One shipping fee for a bundle</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Business.</span> Not needed to test the bet. Bundle design started in October.</span>
-      </div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">A brand for buyer protection</span>
-        <span style="color: #3d3d3d">A name buyers learn to trust</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Business.</span> Plain words first: Buy now and Shipping. A brand can come once protection has a track record.</span>
-      </div>
-      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3">
-        <span style="font-weight: 500">The US, marketing and subsidies</span>
-        <span style="color: #3d3d3d">More buyers, sooner</span>
-        <span style="color: #3d3d3d"><span style="color: #141414; font-weight: 500">Business.</span> Test real demand in Canada first, with no paid push.</span>
       </div>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 28px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-bottom: 12px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The first version</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Solution</span>
+      <h2 id="solution" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">The first version</h2>
       <p style="margin: 0; color: #3d3d3d">What shipped on September 16, for both sides of an order.</p>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 0">
-      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Buyers: one tap to buy, tracked to the door</h3>
-      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Buy now sits on the listing with every fee explained before checkout. Checkout shows an itemized total on one page, and the order page tracks the item from Paid to Delivered.</p>
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 0px">
+      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Buyers: one tap to buy, 48 hours to check</h3>
+      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Buy now sits on the listing with every fee explained before checkout. Checkout shows an itemized total on one page, the order page tracks the item to the door, and the buyer has 48 hours after delivery to confirm it or report a problem.</p>
     </div>
     <div class="stage4 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
@@ -352,12 +334,12 @@ a:hover{color:#5c5c5c}
         <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Checkout.</span> Address, card and an itemized total on one page.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/buy-paid.webp" alt="Payment completed: the buyer will be notified through chat and notifications once the seller ships" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Paid.</span> Updates arrive in chat and notifications once the seller ships.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
         <img src="assets/img/order.webp" alt="Order details: your item is on its way, with Paid, Shipped and Delivered steps and Canada Post tracking" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
         <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Order details.</span> Paid, Shipped and Delivered, with Canada Post tracking.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
+        <img src="assets/img/inspect-nudge.webp" alt="Confirm order with a quick check: confirm to pay the seller instantly, or report an issue by the deadline" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A quick check.</span> Confirm to pay the seller now, or report a problem. Otherwise payment releases on its own.</p>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 40px">
@@ -378,13 +360,13 @@ a:hover{color:#5c5c5c}
         <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Recommended.</span> The suggested size is already filled in.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/setup-done.webp" alt="Shipping setup complete with package size and sender address, and a note that says you are all set" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">All set.</span> Add an address once, and the listing can ship.</p>
+        <img src="assets/img/bn-choose-package-size.webp" alt="Choose a package size: M, about the size of a shoebox, is recommended, with S, L and XL below, each compared to an everyday object" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Easy to check.</span> Each size compares to something familiar, like a shoebox, so the seller can confirm the pick or change it.</p>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 40px">
       <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">Sellers, part 2: after the sale, every next step spelled out</h3>
-      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Once an item is paid, a system message in chat and the order page lead the seller from packing to payout, so no one has to guess what comes next.</p>
+      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Once an item is paid, a system message in chat and the order page lead the seller from packing to payout. If the buyer reports a problem, it goes to the seller first, and the payout waits until it’s resolved.</p>
     </div>
     <div class="stage4 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
@@ -400,28 +382,6 @@ a:hover{color:#5c5c5c}
         <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Four steps to ship.</span> Pack, take photos, print the label, drop off at Canada Post.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/seller-payout.webp" alt="Payout: Hooray! You earned $440, paid by Interac e-Transfer" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Payout.</span> What the seller earned, sent by Interac e-Transfer.</p>
-      </div>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 40px">
-      <h3 style="margin: 0; font-size: 19px; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em">48 hours to check the item, and a fair way to settle problems</h3>
-      <p style="margin: 0; font-size: 16px; color: #3d3d3d">After delivery, the buyer has 48 hours to confirm the item or report a problem. Problems go to the seller first, and the seller’s payout waits until they’re resolved.</p>
-    </div>
-    <div class="stage4 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 48px; box-sizing: border-box; gap: 40px 3%; justify-items: center; align-items: start">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/inspect-delivered.webp" alt="Order delivered, with the deadline to inspect the item and a Review item button showing the time left" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Delivered.</span> The deadline to check the item is shown up front.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/inspect-nudge.webp" alt="Confirm order with a quick check: confirm to pay the seller instantly, or report an issue by the deadline" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A quick check.</span> Confirm to pay the seller now, or report a problem. Otherwise payment releases on its own.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/report.webp" alt="Report an issue: payout on hold until resolved, with reasons such as item not received, damaged in transit, or not as described" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Report an issue.</span> Three clear reasons, and a note that the seller’s payout is on hold.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
         <img src="assets/img/resolve.webp" alt="Seller screen: how would you like to resolve? Partial refund, full refund or dispute" style="width: 100%; max-width: 240px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
         <p style="margin: 0; width: 100%; max-width: 240px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">The seller responds.</span> A partial refund, a full refund, or a dispute for Karrot to decide.</p>
       </div>
@@ -430,143 +390,44 @@ a:hover{color:#5c5c5c}
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Package size, with less to think about</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Deep dive</span>
+      <h2 id="package-size" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Package size, with less to think about</h2>
       <p style="margin: 0; color: #3d3d3d">Choosing a package size was the step most likely to stop a seller. The buyer’s shipping cost depends on it. And unlike the US Postal Service, Canada Post gives out no free standard boxes, so Canadians reuse delivery boxes or pick one up at a grocery or liquor store.</p>
       <p style="margin: 0; color: #3d3d3d">I studied how retail apps explain fit and how marketplaces describe box sizes, then went through rounds of drafts and tests. Each round asked less of the seller.</p>
     </div>
-    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 72px 7% 56px; box-sizing: border-box; gap: 40px 4%; justify-items: center; align-items: start">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/pkg-r1.webp" alt="Round 1 draft: Small or Medium, each described by an envelope or shoebox and a weight limit" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Round 1.</span> Two sizes, each defined by an object and a weight limit.</p>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 16px">
+      <div class="stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 40px 4%; box-sizing: border-box">
+        <img src="assets/img/bn-package-drafts.webp" alt="Package drafts: weight ranges each anchored to one object such as a 4 L jug of milk, a list of common item weights, a quick way to measure a box, and a size and weight table" loading="lazy" style="width: 100%; height: auto; aspect-ratio: 3440 / 2354; display: block">
       </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/pkg-r2.webp" alt="Round 2 draft: S, M and L with plain names, example items, exact limits and a size guide link" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Round 2.</span> Three sizes with plain names, example items and exact limits, plus a size guide.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/package-size.webp" alt="Shipped: choose a package size, with M recommended and described as about the size of a shoebox" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Shipped.</span> Four sizes, each one thing people own. The likely size comes first, already selected.</p>
-      </div>
-    </div>
+      <figcaption style="margin: 0; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Drafts.</span> Weight ranges anchored to one object, like a 4 L jug of milk. A list of common item weights. A quick way to measure a box. A size and weight table.</figcaption>
+    </figure>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px; padding-bottom: 8px">
       <p style="margin: 0; color: #3d3d3d">A list of example items became one familiar object per size. Weight came off the size cards, since sellers pick a size or a weight, never both. And the size most items in the category need comes first, already selected.</p>
     </div>
-    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 72px 7% 56px; box-sizing: border-box; gap: 40px 4%; justify-items: center; align-items: start">
+    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 72px 6% 56px; box-sizing: border-box; gap: 40px 4%; justify-items: center; align-items: start">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/pkg-measure.webp" alt="Quick way to measure your box: printer paper, a thumb, and a shake test, with a box size checker below" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">No ruler needed.</span> Printer paper for length and width, a thumb for height, and a shake test for padding. Sellers can also type in a box’s size to check it.</p>
+        <img src="assets/img/bn-final-size.webp" alt="Final: choose a package size, with M recommended as about the size of a shoebox, then S, L and XL, each compared to an everyday object" loading="lazy" style="width: 100%; max-width: 260px; height: auto; display: block; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff; aspect-ratio: 780 / 2616">
+        <p style="margin: 0; width: 100%; max-width: 260px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Package size.</span> Four sizes, each one thing people own. The likely size comes first, already selected.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/pkg-weight-a.webp" alt="How heavy is your item, version A: each weight range shown with real items such as a cast iron pan and a boxed game console" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Heavy items, version A.</span> Real items in each weight range.</p>
+        <img src="assets/img/bn-final-measure.webp" alt="Final: how to quickly measure your box, with printer paper, a thumb and a shake test" loading="lazy" style="width: 100%; max-width: 260px; height: auto; display: block; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff; aspect-ratio: 780 / 1688">
+        <p style="margin: 0; width: 100%; max-width: 260px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">No ruler needed.</span> Printer paper for length and width, a thumb for height, and a shake test for padding.</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 0">
-        <img src="assets/img/pkg-weight-b.webp" alt="How heavy is your item, version B: each weight range anchored to one object, such as a 4 L jug of milk" style="width: 100%; max-width: 300px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 300px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Version B.</span> One familiar anchor per range, like a 4 L jug of milk or a checked airline bag.</p>
+        <img src="assets/img/bn-final-weight.webp" alt="Final: how heavy is your item, with lighter than 5 kg recommended, then 5 to 10 kg and 10 to 15 kg, each shown with real items" loading="lazy" style="width: 100%; max-width: 260px; height: auto; display: block; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff; aspect-ratio: 780 / 2862">
+        <p style="margin: 0; width: 100%; max-width: 260px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Package weight.</span> Each range shows real items, like a cast iron skillet or a PS5. Heavier ranges open on request.</p>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px; padding-top: 8px">
-      <p style="margin: 0; color: #3d3d3d">For heavy categories, sellers pick a weight instead, up to 30 kg. I tested two ways to make kilograms feel real: real items in each range, or one familiar anchor.</p>
+      <p style="margin: 0; color: #3d3d3d">For heavy categories, sellers pick a weight instead, up to 30 kg. I tested two ways to make kilograms feel real: one familiar anchor per range, like a 4 L jug of milk, or real items in each range. Real items shipped.</p>
       <p style="margin: 0; color: #3d3d3d">Behind each choice is what the label declares. Sizes use a dimensional weight, from 0.7 kg for S to 9.4 kg for XL, and weight ranges use their upper limit.</p>
-    </div>
-  </section>
-
-  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 32px">
-    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">After launch: what users told us</h2>
-      <p style="margin: 0; color: #3d3d3d">In the first weeks, support tickets and user feedback kept coming back to the same questions: how shipping works from start to finish, who pays for it, when sellers get paid, and what to do after a sale. The follow-ups below answer those questions and make shipping easier to switch on.</p>
-    </div>
-    <div class="stage3 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 64px 7% 48px; box-sizing: border-box; gap: 40px 4%; justify-items: center; align-items: start">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-guide.webp" alt="How shipping works: four steps from the sale to payout, marking whose turn it is" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">How shipping works.</span> One page from sale to payout, showing whose turn it is at each step.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-chatbot.webp" alt="AI help chat answering: who pays for shipping on a Buy now order?" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Answers in place.</span> Common questions, like who pays for shipping, open an AI help chat.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-order-timeline.webp" alt="Seller order details as a vertical timeline: the buyer paid, your turn to ship, then tracking, the buyer check and payout" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A timeline, not a chat.</span> I chose one vertical timeline over chat-style bubbles. Sellers see whose turn it is, the next action, and when they’ll be paid.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-qr.webp" alt="Step 3, get your QR code: a prepaid label to show at a Canada Post counter, with printing as the fallback" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A QR code before a printer.</span> A label needs a printer, so sellers now show a QR code at the counter. Printing is the fallback.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-promo.webp" alt="Sell nationwide, pay zero fees: reach buyers nationwide, collect 100% of your sale, get paid securely" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Shipping for every listing.</span> Sellers can turn on shipping for all their active listings at once, with the zero-fee promise up front.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0">
-        <img src="assets/img/p2-ask-shipping.webp" alt="Buyer chat: You asked for shipping. Hi Izzy, could you turn on shipping for this item?" style="width: 100%; max-width: 270px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 24px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
-        <p style="margin: 0; width: 100%; max-width: 270px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Ask for shipping.</span> Buyers can ask a meetup-only seller to turn on shipping, so the item can ship with their other items.</p>
-      </div>
-    </div>
-    <div class="two" style="padding-top: 16px">
-      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #e6e6e3">
-        <h3 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Bundles without surprise prices</h3>
-        <p style="margin: 0; font-size: 16px; color: #3d3d3d">For buying several items at once, I dropped the option where buyers approve a maximum and pay the real price later. An unknown price is a big barrier. If some items can’t ship, I chose to ask the buyer to keep the rest or cancel, rather than quietly removing items.</p>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #e6e6e3">
-        <h3 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">The problem under the problem</h3>
-        <p style="margin: 0; font-size: 16px; color: #3d3d3d">Better screens alone won’t make people buy and sell by shipping. The data showed two bigger problems: shipping listings sold less often than local ones, and too many orders were cancelled. I started a cancellation study that pairs order data with the order chats. 75 of 238 orders had been cancelled, with the most value lost on orders of $150 and up.</p>
-      </div>
     </div>
   </section>
 
   <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">How I worked with AI</h2>
-      <p style="margin: 0; color: #3d3d3d">The team had no PM or data analyst, so I used Claude to cover much of that ground: research, spec checks, data analysis and Figma work. I set the questions and made the calls.</p>
-    </div>
-    <div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.55">
-      <div class="ai-row ai-head" style="padding-bottom: 10px; font-size: 15px; color: #5c5c5c"><span>Area</span><span>What Claude did</span><span>What I did</span></div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Research</span>
-        <span style="color: #3d3d3d">Studied how nine North American marketplaces name and show shipping, and found the gap in Canada. Counted the Karrot chats already arranging delivery.</span>
-        <span style="color: #3d3d3d">Framed the naming options and the core idea: delivery, not speed</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Spec check</span>
-        <span style="color: #3d3d3d">Checked the PRD, flow diagrams and FAQ against each other before QA. Found 17 conflicts, 5 critical, such as two payment providers and four labels for one button.</span>
-        <span style="color: #3d3d3d">Moved the QA plan into my QA template under the PRD</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Policy</span>
-        <span style="color: #3d3d3d">Reviewed the list of items that can’t ship, and proposed calls on 56 borderline rows</span>
-        <span style="color: #3d3d3d">Confirmed the rule details, and allowed pet food</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Data</span>
-        <span style="color: #3d3d3d">Ran BigQuery analyses after launch: listing entry points, setup rates, buyer behaviour, bundle demand and cancellations</span>
-        <span style="color: #3d3d3d">Corrected charts, asked for matched date ranges, and checked what the team already knew before sharing</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Figma</span>
-        <span style="color: #3d3d3d">Built screens and clickable prototypes with our SEED components: order status, refund breakdown, bundles and the QR code step</span>
-        <span style="color: #3d3d3d">Rejected ideas like the chat bubbles, had screens rebuilt with existing components, and cut emails that were too heavy</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">UX copy</span>
-        <span style="color: #3d3d3d">Ran every copy pass through the UX writing skill I built, catching swapped buyer and seller copy and naming drift</span>
-        <span style="color: #3d3d3d">Maintain the skill, and fixed copy that didn’t match real policy</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Design review</span>
-        <span style="color: #3d3d3d">Turned 42 of our past decisions into a design skill engineers run before they ship UI</span>
-        <span style="color: #3d3d3d">Wrote the rules, their reasons, and when to come to me</span>
-      </div>
-      <div class="ai-row" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3">
-        <span style="font-weight: 500">Strategy</span>
-        <span style="color: #3d3d3d">Challenged the 30% opt-in goal as a measure of growth, and argued for fixing cancellations first</span>
-        <span style="color: #3d3d3d">Pushed back that UI alone won’t fix adoption, and chose the next problem</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap" style="padding-top: 152px; display: flex; flex-direction: column; gap: 40px">
-    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Where it stands</h2>
+      <span style="font-size: 15px; color: #5c5c5c">Results</span>
+      <h2 id="results" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Six weeks after launch</h2>
       <p style="margin: 0; color: #3d3d3d">It’s too early to call Buy now a growth lever. Orders are growing and the reach is real, but supply is short and too many orders fall through. Numbers as of late October 2026.</p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 56px">
@@ -607,20 +468,181 @@ a:hover{color:#5c5c5c}
     </div>
   </section>
 
+  <section class="wrap" style="padding-top: 136px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
+      <span style="font-size: 15px; color: #5c5c5c">Iteration</span>
+      <h2 id="iteration" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">Finding the friction</h2>
+      <p style="margin: 0; color: #3d3d3d">Shipping opt-in had stalled at 14%, but more listings wouldn’t help while a third of orders fell through. So I started with the hours after a sale, using two sources: every support conversation from Sep 24 to Nov 1, and every order placed from Sep 16 to Oct 28, read alongside its order chat.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 64px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+      <h3 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 500; letter-spacing: -0.01em">Where people got stuck</h3>
+      <p style="margin: 0; color: #3d3d3d">636 help-chat messages and 101 support tickets in 39 days. The top question moved one step along the order every week or two: turning shipping on, then getting paid, then getting the box out to Canada Post.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; font-size: 16px; line-height: 1.55">
+      <div class="later later-head" style="padding-bottom: 10px; font-size: 15px; color: #5c5c5c"><span>Where they got stuck</span><span>Why</span><span>What I proposed</span></div>
+      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #8f8f8a">Sellers</span><span style="font-weight: 500">Turning shipping on</span><span style="font-size: 15px; color: #5c5c5c">Two or three a day, every day since launch</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">Why</span><span style="color: #3d3d3d">When a listing can’t ship, the toggle just isn’t there, and nothing says why.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">What I proposed</span><span style="color: #3d3d3d">Say why shipping is unavailable. Let sellers turn it on for every listing at once, which they asked for five times.</span></div>
+      </div>
+      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #8f8f8a">Sellers</span><span style="font-weight: 500">Printing the label</span><span style="font-size: 15px; color: #5c5c5c">Four sellers in 12 days, one with the parcel already packed</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">Why</span><span style="color: #3d3d3d">The flow assumed everyone has a printer.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">What I proposed</span><span style="color: #3d3d3d">A QR code to show at the Canada Post counter, which can already print from it.</span></div>
+      </div>
+      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #8f8f8a">Sellers</span><span style="font-weight: 500">Shipping anything valuable</span><span style="font-size: 15px; color: #5c5c5c">Six sellers asked what happens if a parcel is lost or a buyer lies</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">Why</span><span style="color: #3d3d3d">Protection is capped at $100, and the shipping guide and the FAQ say different things.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">What I proposed</span><span style="color: #3d3d3d">Decide what seller protection is first, then make every document say the same thing. It changes what gets listed at all.</span></div>
+      </div>
+      <div class="later" style="padding-top: 16px; padding-bottom: 16px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #8f8f8a">Buyers</span><span style="font-weight: 500">Paying by debit card</span><span style="font-size: 15px; color: #5c5c5c">Six more people from Oct 21 to 31 alone</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">Why</span><span style="color: #3d3d3d">Checkout only takes credit cards, and the card sheet just closes without a word.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span class="m-only" style="display: none; font-size: 13px; color: #8f8f8a">What I proposed</span><span style="color: #3d3d3d">One sentence on the card screen: “Debit cards aren’t accepted. Please use a credit card.”</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 88px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+      <h3 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 500; letter-spacing: -0.01em">Why orders fell through</h3>
+      <p style="margin: 0; color: #3d3d3d">75 of 238 orders were cancelled, and the rate was climbing: about 1 in 4 in September, 35 to 37% a week since mid-October. I looked at each cancelled order’s chat, the seller’s app visits and what happened to the listing afterwards.</p>
+    </div>
+    <div class="results" style="padding-top: 28px; border-top: 1px solid #e6e6e3">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 40px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">47 of 75</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">ended on the seller side: 23 rejected, 24 never shipped.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 40px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">35% vs 19%</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">cancelled on a seller’s first Buy now order, against repeat sellers.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 40px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">54%</span>
+          <span style="font-size: 16px; line-height: 1.5; color: #5c5c5c">of orders of $150 or more were cancelled. They hold 70% of the value lost.</span>
+        </div>
+    </div>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+      <figcaption style="font-size: 15px; color: #5c5c5c">Who ended the 75 cancelled orders</figcaption>
+      <div aria-hidden="true" style="position: relative; height: 22px">
+        <div style="position: absolute; left: 0; width: 62.67%; bottom: 0; height: 8px; border: 1px solid #141414; border-bottom: none; border-radius: 3px 3px 0 0"></div>
+        <span style="position: absolute; left: 0; width: 62.67%; bottom: 10px; text-align: center; font-size: 13px; line-height: 1; font-weight: 500">Seller side, 47</span>
+      </div>
+      <div role="img" aria-label="Seller rejected 23, seller never shipped 24, buyer cancelled 18, Karrot ops 6, dispute lost 4" style="display: flex; gap: 2px; height: 36px; border-radius: 6px; overflow: hidden"><span title="Seller rejected: 23" style="flex: 23 1 0; min-width: 0; background: #141414"></span><span title="Seller never shipped: 24" style="flex: 24 1 0; min-width: 0; background: #5c5c5c"></span><span title="Buyer cancelled: 18" style="flex: 18 1 0; min-width: 0; background: #9a9a95"></span><span title="Karrot ops: 6" style="flex: 6 1 0; min-width: 0; background: #c9c9c4"></span><span title="Dispute lost: 4" style="flex: 4 1 0; min-width: 0; background: #dcdcd7"></span></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: #5c5c5c"><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 2px; background: #141414"></span>Seller rejected <span style="color: #141414; font-weight: 500; font-variant-numeric: tabular-nums">23</span></span><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 2px; background: #5c5c5c"></span>Seller never shipped <span style="color: #141414; font-weight: 500; font-variant-numeric: tabular-nums">24</span></span><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 2px; background: #9a9a95"></span>Buyer cancelled <span style="color: #141414; font-weight: 500; font-variant-numeric: tabular-nums">18</span></span><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 2px; background: #c9c9c4"></span>Karrot ops <span style="color: #141414; font-weight: 500; font-variant-numeric: tabular-nums">6</span></span><span style="display: inline-flex; align-items: center; gap: 8px; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 2px; background: #dcdcd7"></span>Dispute lost <span style="color: #141414; font-weight: 500; font-variant-numeric: tabular-nums">4</span></span></div>
+    </figure>
+    <div class="two">
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #e6e6e3">
+        <h4 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Sellers weren’t ready for a real order</h4>
+        <p style="margin: 0; font-size: 16px; color: #3d3d3d">22 of 23 rejections were the seller’s first Buy now order, and 20 came within a day of payment. The chats show items already sold elsewhere. Orders with no chat before payment were cancelled more often, 38% against 27%.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #e6e6e3">
+        <h4 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Sellers saw the order and still didn’t ship</h4>
+        <p style="margin: 0; font-size: 16px; color: #3d3d3d">23 of the 24 sellers who never shipped opened the app during the five days, and 19 wrote to the buyer. 12 never opened the label. The chats mention no printer, or wanting to meet up instead. Every one of those buyers waited the full five days for a refund.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 88px; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px">
+      <h3 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 500; letter-spacing: -0.01em">What we’re changing</h3>
+      <p style="margin: 0; color: #3d3d3d">Sellers had the order and the app open, but the next step was buried in a chat, and the step after it assumed a printer. Earlier follow-ups covered questions and setup: a How shipping works guide with an AI help chat, shipping for every listing at once, and a way for buyers to ask for shipping. This round starts with the hours after a sale.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 4px; max-width: 680px">
+        <span style="font-size: 15px; color: #5c5c5c">1</span>
+        <h4 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Put the sale where sellers already look</h4>
+        <p style="margin: 0; font-size: 16px; color: #3d3d3d">For the sellers who saw the order and didn’t ship. One order shows once per screen, sorted by ship-by date, up to three before See more, and leaves when it’s done.</p>
+      </div>
+      <div class="stage4 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 44px; box-sizing: border-box; gap: 36px 4%; justify-items: center; align-items: start">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-home-first.webp" alt="Home feed with a card at the top: Your item sold! We’ll show you how to ship it, step by step. Ship by Nov 9, with a See how shipping works button" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Home.</span> A sold item sits at the top of the feed. A first-time seller is offered the steps, a repeat seller goes straight to shipping.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-chats-pinned.webp" alt="Chats tab with the order chat pinned at the top: Ship your item by Nov 9" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Chats.</span> The order chat stays pinned above the rest, with its deadline in place of the last message.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-chatroom-next.webp" alt="Chatroom with a Next step bar under the header: Ship your item by Nov 9" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Chatroom.</span> A Next step bar keeps the action one tap away while the two people talk.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-mykarrot-todo.webp" alt="My Karrot with a To do card: Zara Cashmere Sweater, Ship by Nov 9, Prepare shipment, above Purchases in progress" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">My Karrot.</span> A To do list for what the seller owes, next to purchases still on their way.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 4px; max-width: 680px">
+        <span style="font-size: 15px; color: #5c5c5c">2</span>
+        <h4 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Every step spelled out, and no printer needed</h4>
+        <p style="margin: 0; font-size: 16px; color: #3d3d3d">For first-time sellers, the 12 who never opened the label, and the sellers with no printer.</p>
+      </div>
+      <div class="stage4 stage-pad" style="background: #f2f2f0; border-radius: 20px; padding: 56px 5% 44px; box-sizing: border-box; gap: 36px 4%; justify-items: center; align-items: start">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-get-ready.webp" alt="Get ready to ship: follow these steps. Pack securely, take photos (optional), get your prepaid QR code, drop off at Canada Post" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Get ready to ship.</span> Four steps before the first box: pack, photos if they like, the QR code, then drop-off.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/p2-qr.webp" alt="Step 3, get your QR code: a prepaid label to show at a Canada Post counter, with printing as the fallback" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A QR code before a printer.</span> Sellers show a code at the counter. Printing becomes the fallback.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/p2-order-timeline.webp" alt="Seller order details as a vertical timeline: the buyer paid, your turn to ship, then tracking, the buyer check and payout" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">A timeline, not a chat.</span> I chose one vertical timeline over chat-style bubbles. Sellers see whose turn it is, the next action, and when they’ll be paid.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; min-width: 0">
+          <img src="assets/img/bn-fr-home-last.webp" alt="Home feed card: Last day to ship, Ship by 6 PM today, Prepare shipment" style="width: 100%; max-width: 230px; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; border-radius: 20px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 16px 40px rgba(0,0,0,0.08); background: #ffffff">
+          <p style="margin: 0; width: 100%; max-width: 230px; font-size: 14px; line-height: 1.5; color: #5c5c5c"><span style="color: #141414; font-weight: 500">Last day.</span> On the final day the card turns into a warning, with a time instead of a date.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 680px; padding-top: 18px; border-top: 1px solid #e6e6e3">
+      <h4 style="margin: 0; font-size: 17px; line-height: 1.4; font-weight: 600">Still open: decisions, not screens</h4>
+      <p style="margin: 0; font-size: 16px; color: #3d3d3d">Some fixes aren’t design. Seller protection needs a decision before any screen can promise it. Debit cards need one honest sentence at checkout. Twelve buyers who only want local, two of them ready to leave, need an answer on hiding shipping listings. Each is written up with its evidence, waiting on a call.</p>
+    </div>
+  </section>
+
   <section class="wrap" style="padding-top: 136px; padding-bottom: 152px; display: flex; flex-direction: column; gap: 14px">
     <div style="display: flex; flex-direction: column; gap: 14px; max-width: 680px">
-      <h2 style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What’s next</h2>
-      <p style="margin: 0; color: #3d3d3d">Cancellations first: why orders fall through, from both the numbers and the chats. Then whether shipping listings can sell as well as local ones. The question hasn’t changed: can Buy now grow Karrot in Canada? Now we have a product to answer it with.</p>
+      <h2 id="whats-next" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">What’s next</h2>
+      <p style="margin: 0; color: #3d3d3d">Ship the seller to-dos and the step-by-step guide, then watch whether seller-side cancellations fall, starting with first orders. Then whether shipping listings can sell as well as local ones. The question hasn’t changed: can Buy now grow Karrot in Canada? Now we have a product to answer it with.</p>
+    </div>
+  </section>
+
+  <section class="wrap" aria-labelledby="more-work" style="padding-top: 56px; padding-bottom: 120px; border-top: 1px solid #e6e6e3; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px">
+      <h2 id="more-work" style="margin: 0; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -0.015em">More work</h2>
+      <a href="index.html#work" style="text-decoration: none; font-size: 15px">All work</a>
+    </div>
+    <div class="nx-grid">
+      <a class="nx-card" href="beyond-second-hand.html">
+        <span class="nx-title">Beyond the Marketplace</span>
+        <span class="nx-shot"><img src="assets/img/bsh-mk-exp2.webp" alt="" width="750" height="1624" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="karrot-map.html">
+        <span class="nx-title">Karrot Map: 61K → 218K Daily Users</span>
+        <span class="nx-shot"><img src="assets/img/km-ux-store.webp" alt="" width="780" height="1688" loading="lazy"></span>
+      </a>
+      <a class="nx-card" href="seed-design-system.html">
+        <span class="nx-title">SEED Design System: From Scratch to 90%+ Adoption</span>
+        <span class="nx-shot"><img src="assets/img/ds-buttons-panel.webp" alt="" width="984" height="1124" loading="lazy"></span>
+      </a>
     </div>
   </section>
 
   <footer class="wrap" style="padding-top: 40px; padding-bottom: 56px; border-top: 1px solid #e6e6e3; display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; flex-wrap: wrap; font-size: 15px">
-    <a href="beyond-second-hand.html" style="text-decoration: none">Next: Beyond the Marketplace →</a>
+    <span style="font-weight: 600">Jihyun Kim</span>
     <div style="display: flex; gap: 28px; flex-wrap: wrap">
       <a href="mailto:lalala9216@gmail.com" style="text-decoration: none">lalala9216@gmail.com</a>
       <a href="https://www.linkedin.com/in/journy/" target="_blank" rel="noopener" style="text-decoration: none">LinkedIn</a>
     </div>
   </footer>
 </div>
+<script>(function(){var l=[].slice.call(document.querySelectorAll(".toc [data-toc]"));if(!l.length)return;var ids=[];l.forEach(function(a){var i=a.getAttribute("data-toc");if(ids.indexOf(i)<0)ids.push(i)});function u(){var c=ids[0];ids.forEach(function(i){var e=document.getElementById(i);if(e&&e.getBoundingClientRect().top<=160)c=i});l.forEach(function(a){a.classList.toggle("is-active",a.getAttribute("data-toc")===c)})}window.addEventListener("scroll",u,{passive:true});u()})();</script>
 </body>
 </html>
