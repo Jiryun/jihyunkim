@@ -37,6 +37,12 @@ a:hover{color:#5c5c5c}
 #work{scroll-margin-top:96px}#path,#about{scroll-margin-top:60px}
 .topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);box-shadow:0 1px 0 rgba(20,20,20,0.06)}
 @supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.topbar{background:#ffffff}}
+.cv-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,0.8fr);grid-template-areas:"co role yr" ". desc desc";gap:4px 24px;padding-top:16px;padding-bottom:18px;border-top:1px solid #e6e6e3;font-size:16px}
+.cv-co{grid-area:co}
+.cv-role{grid-area:role;color:#5c5c5c}
+.cv-yr{grid-area:yr;color:#5c5c5c;text-align:right;font-variant-numeric:tabular-nums}
+.cv-desc{grid-area:desc;margin:4px 0 0;font-size:15px;line-height:1.55;color:#5c5c5c;text-wrap:pretty}
+@media (max-width:860px){.cv-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"co yr" "role role" "desc desc"}}
 </style>
 </head>
 <body>
@@ -126,7 +132,6 @@ a:hover{color:#5c5c5c}
             <path d="M756 17 C836.7 7.3 951 -4.7 990 -9" fill="none" stroke="#9a9a95" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
             <path d="M6 77 C47.7 75.5 172.7 72.7 256 68 C339.3 63.3 422.7 57.5 506 49 C589.3 40.5 675.3 26.7 756 17" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
           </svg>
-          <span style="position: absolute; left: 0; top: -6px; display: flex; align-items: center; gap: 6px; font-size: 13px; color: #5c5c5c"><svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true"><path d="M5 11 V1.5 M1.5 5 L5 1.5 L8.5 5" fill="none" stroke="#5c5c5c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>Scope of my work</span>
           <span aria-hidden="true" style="position: absolute; left: 0.6%; top: 77%; width: 12px; height: 12px; margin-left: -6px; margin-top: -6px; border-radius: 50%; background: #141414; box-shadow: 0 0 0 4px #f2f2f0"></span>
           <div class="cl" style="position: absolute; left: calc(0.6% + 16px); top: calc(77% + 14px); display: flex; flex-direction: column; gap: 2px">
             <span class="cl-full" style="font-size: 13px; line-height: 1.4; color: #5c5c5c; font-variant-numeric: tabular-nums">2022–2023</span>
@@ -163,8 +168,8 @@ a:hover{color:#5c5c5c}
       </div>
     </figure>
 
-    <div style="display: flex; flex-direction: column; border-bottom: 1px solid #e6e6e3">
-      <div class="path-row" style="padding-top: 32px; padding-bottom: 36px; border-top: 1px solid #e6e6e3">
+    <div style="display: flex; flex-direction: column">
+      <div class="path-row" style="padding-top: 32px; padding-bottom: 36px">
         <div style="display: flex; flex-direction: column; gap: 6px">
           <span style="font-size: 14px; color: #5c5c5c; font-variant-numeric: tabular-nums">01 · 2022–2023</span>
           <h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 500; letter-spacing: -0.015em">Design system</h3>
@@ -223,21 +228,13 @@ a:hover{color:#5c5c5c}
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0">
           <p style="margin: 0; color: #3d3d3d; font-size: 16px; line-height: 1.6">As the sole designer on a small, early-stage team with no PM or data analyst, I work across product strategy, policy, UX, UI, and data. My current focus is Buy Now, Karrot’s first payments and shipping experience in Canada.</p>
-          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: #3d3d3d; font-size: 16px; line-height: 1.55"><li style="padding-left: 18px; position: relative"><span aria-hidden="true" style="position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 50%; background: #9a9a95"></span>Wrote the PRD, policies, and specifications, and mapped the complete order journey from payment to payout.</li><li style="padding-left: 18px; position: relative"><span aria-hidden="true" style="position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 50%; background: #9a9a95"></span>Turned 42 past design decisions into an AI-assisted review system engineers use before shipping UI.</li><li style="padding-left: 18px; position: relative"><span aria-hidden="true" style="position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 50%; background: #9a9a95"></span>Created an AI-assisted UX writing system used in every copy review.</li></ul>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: #3d3d3d; font-size: 16px; line-height: 1.55"><li style="padding-left: 18px; position: relative"><span aria-hidden="true" style="position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 50%; background: #9a9a95"></span>Wrote the PRD, policies, and specifications, and mapped the complete order journey from payment to payout.</li></ul>
           <a href="buy-now.html" style="font-size: 15px; text-decoration: none; align-self: flex-start">Buy now case study →</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 24px; min-width: 0">
           <div style="display: flex; flex-direction: column; gap: 6px">
             <span style="font-size: 36px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">6 weeks</span>
             <span style="font-size: 14px; line-height: 1.5; color: #5c5c5c">to launch, with the CEO and one backend engineer.</span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px">
-            <span style="font-size: 36px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">246</span>
-            <span style="font-size: 14px; line-height: 1.5; color: #5c5c5c">paid orders by late October 2026, more than twice the first target.</span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 6px">
-            <span style="font-size: 36px; line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap">42%</span>
-            <span style="font-size: 14px; line-height: 1.5; color: #5c5c5c">of orders crossed provincial borders.</span>
           </div>
         </div>
       </div>
@@ -249,33 +246,32 @@ a:hover{color:#5c5c5c}
       <h2 style="margin: 0; font-size: 17px; line-height: 1.6; font-weight: 500; color: #5c5c5c">About</h2>
       <div style="display: flex; flex-direction: column; gap: 48px; min-width: 0">
         <div style="display: flex; flex-direction: column; gap: 20px; max-width: 640px">
-          <p style="margin: 0; font-size: 22px; line-height: 1.45; letter-spacing: -0.012em">At Karrot, I’ve designed across the core app: the home feed, My Karrot, the map, and now payments and shipping for Canada.</p>
-          <p style="margin: 0; color: #5c5c5c">I also build systems that help teams ship better work at scale: a design system in 2022, a server-driven feed in 2024, and an AI-assisted design-review system in 2026.</p>
+          <p style="margin: 0; font-size: 22px; line-height: 1.45; letter-spacing: -0.012em">I’m a senior product designer with 10 years of experience across search, feeds, maps, payments and design systems. I focus on experiences that feel cohesive across a whole app, built around clear goals and outcomes.</p>
         </div>
 
-        <div style="display: flex; flex-direction: column">
-          <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 4px 24px; padding-top: 14px; padding-bottom: 14px; border-top: 1px solid #e6e6e3; font-size: 16px">
-            <span>Karrot</span><span style="color: #5c5c5c">Product designer, North America</span><span style="color: #5c5c5c; text-align: right">2026 to now</span>
+        <div style="display: flex; flex-direction: column; border-bottom: 1px solid #e6e6e3">
+          <div class="cv-row">
+            <span class="cv-co">Karrot</span><span class="cv-role">Product designer</span><span class="cv-yr">2022 to now</span>
+            <p class="cv-desc">Design system, home feed, maps, and now the North America team in Toronto. <a href="#path" style="text-decoration: none">My path at Karrot ↑</a></p>
           </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 4px 24px; padding-top: 14px; padding-bottom: 14px; border-top: 1px solid #e6e6e3; font-size: 16px">
-            <span>Karrot</span><span style="color: #5c5c5c">Product designer, Korea</span><span style="color: #5c5c5c; text-align: right">2022 to 2026</span>
+          <div class="cv-row">
+            <span class="cv-co">LINE</span><span class="cv-role">Product designer, Platform Design Team</span><span class="cv-yr">2018 to 2022</span>
+            <p class="cv-desc">Designed integrated web and mobile search for the LINE app, which grew from under 100 to over 6 million active users. Standardized the search components and templates.</p>
           </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 4px 24px; padding-top: 14px; padding-bottom: 14px; border-top: 1px solid #e6e6e3; font-size: 16px">
-            <span>LINE</span><span style="color: #5c5c5c">Product designer, search</span><span style="color: #5c5c5c; text-align: right">2018 to 2022</span>
-          </div>
-          <div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 0.8fr); gap: 4px 24px; padding-top: 14px; padding-bottom: 14px; border-top: 1px solid #e6e6e3; border-bottom: 1px solid #e6e6e3; font-size: 16px">
-            <span>Trampoline Design Studio</span><span style="color: #5c5c5c">Graphic designer</span><span style="color: #5c5c5c; text-align: right">2016 to 2018</span>
+          <div class="cv-row">
+            <span class="cv-co">Trampoline Design Studio</span><span class="cv-role">Graphic designer</span><span class="cv-yr">2016 to 2018</span>
+            <p class="cv-desc">Designed interfaces for several clients, plus promotional pages and watch faces for Galaxy Gear.</p>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; font-size: 16px">
           <div style="display: flex; flex-direction: column; gap: 4px">
             <span style="color: #5c5c5c">Recognition</span>
-            <span>Red Dot Design Award 2022, at LINE</span>
+            <span>Red Dot Design Award 2022, brand and communication design, at LINE</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 4px">
             <span style="color: #5c5c5c">Education</span>
-            <span>Sangmyung University, BA in Design and Visual Communications</span>
+            <span>Sangmyung University, BA in Design and Visual Communications, 2010 to 2015</span>
           </div>
         </div>
       </div>
